@@ -6,7 +6,7 @@
   <link href="http://guozhitao.top/atom.xml" rel="self"/>
   
   <link href="http://guozhitao.top/"/>
-  <updated>2020-10-30T14:14:51.898Z</updated>
+  <updated>2020-11-01T13:38:34.882Z</updated>
   <id>http://guozhitao.top/</id>
   
   <author>
@@ -17,23 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://guozhitao.top/2020/10/30/hello-world/"/>
-    <id>http://guozhitao.top/2020/10/30/hello-world/</id>
-    <published>2020-10-30T14:14:51.897Z</published>
-    <updated>2020-10-30T14:14:51.898Z</updated>
+    <title>新建一个hexo博客</title>
+    <link href="http://guozhitao.top/2020/11/01/xin-jian-yi-ge-hexo-bo-ke/"/>
+    <id>http://guozhitao.top/2020/11/01/xin-jian-yi-ge-hexo-bo-ke/</id>
+    <published>2020-11-01T13:24:28.000Z</published>
+    <updated>2020-11-01T13:38:34.882Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;文章-Front-matter-介绍&quot;&gt;&lt;a href=&quot;#文章-Front-matter-介绍&quot; class=&quot;headerlink&quot; title=&quot;文章 Front-matter 介绍&quot;&gt;&lt;/a&gt;文章 Front-matter 介绍&lt;/h2&gt;&lt;h3</summary>
         
       
     
     
     
+    
+    <category term="博客" scheme="http://guozhitao.top/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js执行机制</title>
+    <link href="http://guozhitao.top/2020/11/01/js-zhi-xing-ji-zhi/"/>
+    <id>http://guozhitao.top/2020/11/01/js-zhi-xing-ji-zhi/</id>
+    <published>2020-11-01T13:21:51.000Z</published>
+    <updated>2020-11-01T13:37:49.824Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;@[toc]&lt;/p&gt;
+&lt;h1 id=&quot;js的运行机制&quot;&gt;&lt;a href=&quot;#js的运行机制&quot; class=&quot;headerlink&quot; title=&quot;js的运行机制&quot;&gt;&lt;/a&gt;js的运行机制&lt;/h1&gt;&lt;h2 id=&quot;JavaScript为什么是单线程的&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="js" scheme="http://guozhitao.top/tags/js/"/>
     
   </entry>
   
