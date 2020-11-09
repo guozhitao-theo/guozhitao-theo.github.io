@@ -6,7 +6,7 @@
   <link href="http://guozhitao.top/atom.xml" rel="self"/>
   
   <link href="http://guozhitao.top/"/>
-  <updated>2020-11-02T13:33:05.757Z</updated>
+  <updated>2020-11-09T16:08:44.555Z</updated>
   <id>http://guozhitao.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器安全</title>
+    <link href="http://guozhitao.top/2020/11/09/ke-hu-duan-jiao-ben-an-quan/"/>
+    <id>http://guozhitao.top/2020/11/09/ke-hu-duan-jiao-ben-an-quan/</id>
+    <published>2020-11-09T14:41:41.000Z</published>
+    <updated>2020-11-09T16:08:44.555Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;浏览器安全&quot;&gt;&lt;a href=&quot;#浏览器安全&quot; class=&quot;headerlink&quot; title=&quot;浏览器安全&quot;&gt;&lt;/a&gt;浏览器安全&lt;/h1&gt;&lt;p&gt;​    前言：</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="http://guozhitao.top/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="web安全, 浏览器安全" scheme="http://guozhitao.top/tags/web%E5%AE%89%E5%85%A8-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>新建一个hexo博客</title>
