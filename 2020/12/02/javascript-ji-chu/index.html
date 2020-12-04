@@ -475,7 +475,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h2><ol>
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Mz4y1Q79G?p=27">javascript 高级</a> 笔记</p>
+</blockquote>
+<h1 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h1><h2 id="执行上下文-1"><a href="#执行上下文-1" class="headerlink" title="执行上下文"></a>执行上下文</h2><ol>
 <li><p>代码分类</p>
 <ul>
 <li>全局代码</li>
@@ -524,6 +527,61 @@
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
 <li>先变量提升，再函数提升</li>
 <li>初始化在所有变量提升之后</li>
+</ol>
+<h1 id="作用域与作用域链"><a href="#作用域与作用域链" class="headerlink" title="作用域与作用域链"></a>作用域与作用域链</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ol>
+<li><p>理解</p>
+<ul>
+<li>就是一块“地盘”，一个代码所在的区域。</li>
+<li>它是静态的（相对于全局上下文对象）， 在编写代码的时候就确定了</li>
+</ul>
+</li>
+<li><p>分类</p>
+<ul>
+<li>全局作用域</li>
+<li>函数作用域</li>
+<li>没有块作用域（ES6有了）</li>
+</ul>
+</li>
+<li><p>作用</p>
+<ul>
+<li>隔离变量，不同作用域下同名变量不会有冲突<h2 id="作用域与执行上下文的区别"><a href="#作用域与执行上下文的区别" class="headerlink" title="作用域与执行上下文的区别"></a>作用域与执行上下文的区别</h2></li>
+</ul>
+</li>
+<li><p>区别1</p>
+<ul>
+<li>全局作用域外每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了，而不是在调用时。</li>
+<li>全局执行上下文环境是在全局作用域确定之后，js代码马上执行之前创建</li>
+<li>函数执行上下文环境是在调用函数的时候，函数体代码执行之前创建</li>
+</ul>
+</li>
+<li><p>区别2</p>
+<ul>
+<li>作用域是静态的，只要函数定义好了就一直存在，且不会发生变化</li>
+<li>上下文的环境是动态的，调用函数时创建，函数调用结束时上下文环境就会自动释放</li>
+</ul>
+</li>
+<li><p>联系</p>
+<ul>
+<li>上下文环境（对象）是从属所在的作用域中</li>
+<li>全局上下文环境 ==&gt; 全局作用域</li>
+<li>函数上下文环境 ==&gt; 对应的函数使用域  </li>
+</ul>
+</li>
+</ol>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><ol>
+<li><p>理解</p>
+<ul>
+<li>多个上下级关系的作用域形成的链，他的方向是从下向上的（从内到外）</li>
+<li>查找变量的时候沿着作用域链来查找的</li>
+</ul>
+</li>
+<li><p>查找一个变量的查找规则</p>
+<ul>
+<li>在当前作用域的执行上下文中查找对应的属性如果有直接返回，否则进入2</li>
+<li>在上一级作用域的执行上下文中查找对应的属性，如果有直接返回，否则进入3</li>
+<li>再次执行2的相同操作，直到全局作用域，如果还找不到就抛出找不到的异常</li>
+</ul>
+</li>
 </ol>
 
             </div>
@@ -1037,7 +1095,10 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            执行上下文
+                            
+javascript 高级 笔记
+
+执行上下文执行上下文
 代码分类
 
 全局代码
@@ -1050,7 +1111,7 @@
 
 对全局数据进行预处理   变量提升
 
-var 定义的全局变量==&gt; undefined，添加为window
+var 定义的全局变量==
                         
                     </div>
                     <div class="publish-info">
