@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="执行上下文">
+    <meta name="keywords" content="兄弟连Linux笔记, 郭治涛, 前端, js, VUE, Angular">
     <meta name="description" content="郭治涛的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>javascript基础 | 郭治涛</title>
+    <title>兄弟连Linux笔记 | 郭治涛</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">javascript基础</h1>
+                    <h1 class="description center-align post-title">兄弟连Linux笔记</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">javascript基础</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-02
+                    2020-12-23
                 </div>
                 
 
@@ -475,337 +475,157 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Mz4y1Q79G?p=27">javascript 高级</a> 笔记</p>
-</blockquote>
-<h1 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h1><h2 id="执行上下文-1"><a href="#执行上下文-1" class="headerlink" title="执行上下文"></a>执行上下文</h2><ol>
-<li><p>代码分类</p>
+                <h1 id="兄弟连Linux笔记"><a href="#兄弟连Linux笔记" class="headerlink" title="兄弟连Linux笔记"></a>兄弟连Linux笔记</h1><h2 id="3-1-注意"><a href="#3-1-注意" class="headerlink" title="3.1 注意"></a>3.1 注意</h2><ul>
+<li><p>Linux 严格区分大小写</p>
+</li>
+<li><p>Linux中所有内容以文件形式保存，包括硬件</p>
 <ul>
-<li>全局代码</li>
-<li>函数代码（局部）</li>
+<li>硬盘文件是/dev/sd[a-p]</li>
+<li>光盘文件是/dev/sr0等</li>
 </ul>
 </li>
-<li><p>全局执行上下文</p>
+<li><p>Linux不靠扩展名区分文件类型</p>
 <ul>
-<li><p>在执行全局代码前将window确定为全局执行上下文</p>
-</li>
-<li><p>对全局数据进行预处理   变量提升</p>
-<ul>
-<li><p>var 定义的全局变量==&gt; undefined，添加为window的属性。</p>
-</li>
-<li><p>function声明的全局函数==&gt; 赋值（fun）, 添加为window的方法。 同样会提升</p>
-</li>
-<li><p>this ==&gt; 赋值window</p>
-</li>
-<li><p>开始执行全局代码</p>
-</li>
+<li>压缩包：”<em>.gz”、”</em>.bz2” “<em>.tar.bz2”、”</em>.tgz”等</li>
+<li>二进制软件包： “.rpm”</li>
+<li>网页文件：”<em>.html”、”</em>.php”</li>
+<li>脚本文件：”*.sh” </li>
+<li>配置问价：”*.conf”</li>
 </ul>
 </li>
-</ul>
+<li><p>Linux所有的存储设备都必须挂载之后用户才能是哦那个，包括硬盘、U盘和光盘</p>
 </li>
-<li><p>函数执行上下文</p>
-<ul>
-<li>在调用函数，准备执行函数体之前，创建对应的函数执行上下文对象（虚拟的，存在于栈里面）</li>
-<li>对局部数据进行预处理   函数提升<ul>
-<li>形参变量 ==&gt; 赋值（实参）==&gt; 添加为执行上下文的属性</li>
-<li>argument ==&gt; 赋值(实参列表)， 添加为执行上下文的属性</li>
-<li>var 定义的局部变量==&gt; undefined, 添加为执行上下文的属性</li>
-<li>function声明的函数 ==&gt; 赋值（fun），添加为执行上下文的方法</li>
-<li>this ==&gt; 赋值（调用函数的对象） </li>
-</ul>
+<li><p>Windows下的程序不能直接在Linux中安装和运行</p>
 </li>
 </ul>
-</li>
-</ol>
-<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><ol>
-<li>在全局代码执行前，JS引擎就会创建一个栈来存储管理所有的执行上下文对象</li>
-<li>在全局执行上下文（window）确定后，将其添加到栈中（压栈）</li>
-<li>在函数执行上下文创建之后，将其添加到栈中（压栈）</li>
-<li>在当前函数执行完之后，将栈顶的对象移除（弹栈）</li>
-<li>当所有代码执行完之后，栈中只剩window</li>
-</ol>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>先变量提升，再函数提升</li>
-<li>初始化在所有变量提升之后</li>
-</ol>
-<h1 id="作用域与作用域链"><a href="#作用域与作用域链" class="headerlink" title="作用域与作用域链"></a>作用域与作用域链</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ol>
-<li><p>理解</p>
-<ul>
-<li>就是一块“地盘”，一个代码所在的区域。</li>
-<li>它是静态的（相对于全局上下文对象）， 在编写代码的时候就确定了</li>
+<h2 id="3-2-服务器管理和维护建议"><a href="#3-2-服务器管理和维护建议" class="headerlink" title="3.2 服务器管理和维护建议"></a>3.2 服务器管理和维护建议</h2><h3 id="1-目录及作用"><a href="#1-目录及作用" class="headerlink" title="1. 目录及作用"></a>1. 目录及作用</h3><table>
+<thead>
+<tr>
+<th>目录名</th>
+<th>目录作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/bin/</td>
+<td>存放系统命令的目录，普通用户和超级用户都可以执行。不过放在/bin下的命令在单用户模式下也可以执行</td>
+</tr>
+<tr>
+<td>/sbin/</td>
+<td>保存和系统环境设置相关的命令，只有超级用户可以使用这些命令进行系统环境设置，但是有些命令可以允许普通用户查看</td>
+</tr>
+<tr>
+<td>/usr/bin</td>
+<td>存放系统命令的目录，普通用户和超级用户都可以执行，这些命令和系统执行无关，在单用户模式下不能执行</td>
+</tr>
+<tr>
+<td>/usr/sbin/</td>
+<td>存放根文件系统不必要的系统管理命令，例如多数服务程序。只有超级用户可以使用。大家其实可以注意到Linux的系统，在所有”sbin“目录中保存的命令只有超级用户可以使用，”bin”目录中保存的命令所有用户都能使用</td>
+</tr>
+<tr>
+<td>/boot/</td>
+<td>系统启动目录，保存系统启动相关文件，如内核文件和启动引导程序（grub）文件等</td>
+</tr>
+<tr>
+<td>/dev/</td>
+<td>设备文件保存位置，我们已将说过Linux中的所有内容以文件的形式保存，包括硬件，那么这个目录就是用来保存所有硬件设备文件的</td>
+</tr>
+<tr>
+<td>/etc/</td>
+<td>配置文件保存位置，系统内所有采用默认安装方式（rpm安装）的服务的配置文件全部都保存在这个目录当中，如用户的账户和密码，服务的启动脚本，常用服务的配置文件</td>
+</tr>
+<tr>
+<td>/home/</td>
+<td>普通用户的家目录。建立每个用户时，每个用户要有一个默认登陆位置，这个位置就是这个用户的家目录，所有普通用户的家目录就是在/home下建立一个和用户名相同的目录。如果user1的家目录就是/home/user1</td>
+</tr>
+<tr>
+<td>/lib/</td>
+<td>系统调用函数的库保存位置</td>
+</tr>
+<tr>
+<td>/lost+found/</td>
+<td>当系统意外崩溃或及其意外关机，而产生一些文件碎片放在这里。当系统启动的过程中fsck（file system check）工具会检查这里，并修复已经损坏的文件系统。这个目录只在每个分区中出现，例如/lost+found就是根分区的备份恢复目录，/boot/lost+found/就是/boot分区的备份恢复目录</td>
+</tr>
+<tr>
+<td>/media/</td>
+<td>挂载目录。系统建议是用来挂载媒体设备的，例如软盘和光盘</td>
+</tr>
+<tr>
+<td>/mnt/</td>
+<td>挂载目录。早期Linux中只有这一个挂载目录，并没有细分。现在这个目录系统建议挂载额外设备，如U盘，移动硬盘和其他操作系统分区</td>
+</tr>
+<tr>
+<td>/misc/</td>
+<td>挂载目录。系统建议用来挂载NFS服务的共享目录。只要是一个已经建立的空目录就可以作为挂载点。虽然操作系统准备了三个默认的挂载目录/media、/mnt/、/misc，但是到底在哪个目录中挂载什么设备都可以由管理员自己决定。</td>
+</tr>
+<tr>
+<td>/opt/</td>
+<td>第三方安装的软件保存的位置。这个目录就是放置和安装其他软件的位置，手工安装的源码包软件都可以安装到这个目录中。不过我更习惯把软件放置到/usr/local/目录中，也就是说/usr/local/目录也可以用来安装软件。</td>
+</tr>
+<tr>
+<td>/proc/</td>
+<td>虚拟文件系统，该目录中的数据并不保存到硬盘当中，而是保存内存当中。主要保存系统的内核，进程，外部设备状态和网络状态灯。如/proc/cpuInfo是保存CPU信息的，/proc/devices是保存设备去顶的列表的，/proc/filesystems是保存文件系统列表的，/proc/net/是保存网络协议的。</td>
+</tr>
+<tr>
+<td>/sys/</td>
+<td>虚拟文件系统。和/proc目录相似，都是保存在内存当中的，主要保存于内核相关信息的</td>
+</tr>
+<tr>
+<td>/root/</td>
+<td>超级用户的家目录。普通用户家目录在”/home“下，超级用户家目录直接在”/“下。</td>
+</tr>
+<tr>
+<td>/srv/</td>
+<td>服务数据目录。一些系统服务启动之后，可以在这个目录中保存所需要的数据</td>
+</tr>
+<tr>
+<td>/tmp/</td>
+<td>临时目录。系统存放临时文件的目录，该目录下所有用户都可以访问和写入。我们建议此目录中不能保存重要数据，最好每次开机都把该目录清空</td>
+</tr>
+<tr>
+<td>/usr/</td>
+<td>系统软件资源目录。注意usr 不是user的缩写，而是”Unix software Resource“的缩写，所以不是存放用户数据，而是存放系统软件资源的目录。系统中安装的软件大多数保存在这里，所以除了/usr/bin/和/usr/sbin/这两个目录，再介绍几个/usr/下的二级目录</td>
+</tr>
+<tr>
+<td>/var/</td>
+<td>动态数据保存位置。主要保存缓存、日志以及软件运行所产生的文件</td>
+</tr>
+</tbody></table>
+<h3 id="2-服务器注意事项"><a href="#2-服务器注意事项" class="headerlink" title="2. 服务器注意事项"></a>2. 服务器注意事项</h3><ul>
+<li>远程服务器不允许关机，只能重启</li>
+<li>重启之前应该关闭服务</li>
+<li>不要在服务器访问高峰运行高负载命令（大文件扫描、大文件压缩复制等）</li>
+<li>远程配置防火墙时候不要把自己提出服务器</li>
+<li>指定合理的密码规范并定期更新</li>
+<li>合理分配权限</li>
+<li>定期备份重要数据和日志</li>
 </ul>
-</li>
-<li><p>分类</p>
-<ul>
-<li>全局作用域</li>
-<li>函数作用域</li>
-<li>没有块作用域（ES6有了）</li>
-</ul>
-</li>
-<li><p>作用</p>
-<ul>
-<li>隔离变量，不同作用域下同名变量不会有冲突<h2 id="作用域与执行上下文的区别"><a href="#作用域与执行上下文的区别" class="headerlink" title="作用域与执行上下文的区别"></a>作用域与执行上下文的区别</h2></li>
-</ul>
-</li>
-<li><p>区别1</p>
-<ul>
-<li>全局作用域外每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了，而不是在调用时。</li>
-<li>全局执行上下文环境是在全局作用域确定之后，js代码马上执行之前创建</li>
-<li>函数执行上下文环境是在调用函数的时候，函数体代码执行之前创建</li>
-</ul>
-</li>
-<li><p>区别2</p>
-<ul>
-<li>作用域是静态的，只要函数定义好了就一直存在，且不会发生变化</li>
-<li>上下文的环境是动态的，调用函数时创建，函数调用结束时上下文环境就会自动释放</li>
-</ul>
-</li>
-<li><p>联系</p>
-<ul>
-<li>上下文环境（对象）是从属所在的作用域中</li>
-<li>全局上下文环境 ==&gt; 全局作用域</li>
-<li>函数上下文环境 ==&gt; 对应的函数使用域  </li>
-</ul>
-</li>
-</ol>
-<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><ol>
-<li><p>理解</p>
-<ul>
-<li>多个上下级关系的作用域形成的链，他的方向是从下向上的（从内到外）</li>
-<li>查找变量的时候沿着作用域链来查找的</li>
-</ul>
-</li>
-<li><p>查找一个变量的查找规则</p>
-<ul>
-<li>在当前作用域的执行上下文中查找对应的属性如果有直接返回，否则进入2</li>
-<li>在上一级作用域的执行上下文中查找对应的属性，如果有直接返回，否则进入3</li>
-<li>再次执行2的相同操作，直到全局作用域，如果还找不到就抛出找不到的异常<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1></li>
-</ul>
-</li>
-<li><p>如何产生闭包？</p>
-<ul>
-<li>当一个嵌套的内部（子）的内部函数引用了嵌套的外部（父）函数的变量（函数）时，就产生了闭包</li>
-</ul>
-</li>
-<li><p>闭包到底是什么？</p>
-<ul>
-<li>使用chrom调试查看</li>
-<li>理解一：闭包是嵌套的内部函数</li>
-<li>理解二：内部函数包含被引用变量（函数）的对象</li>
-<li>注意：闭包存在于嵌套的内部函数中</li>
-</ul>
-</li>
-<li><p>产生闭包的条件</p>
-<ul>
-<li>函数嵌套</li>
-<li>内部i函数引用了外部函数的数据（变量/函数）</li>
-</ul>
-</li>
-<li><p>注意：</p>
-<ul>
-<li>执行子函数定义就会产生闭包（不用调用子函数）</li>
-</ul>
-</li>
-<li><p>常见的闭包</p>
+<h2 id="4-Linux-常用命令"><a href="#4-Linux-常用命令" class="headerlink" title="4. Linux 常用命令"></a>4. Linux 常用命令</h2><h3 id="4-1-文件处理命令"><a href="#4-1-文件处理命令" class="headerlink" title="4.1 文件处理命令"></a>4.1 文件处理命令</h3><h4 id="4-1-1-命令格式与目录处理命令ls"><a href="#4-1-1-命令格式与目录处理命令ls" class="headerlink" title="4.1.1 命令格式与目录处理命令ls"></a>4.1.1 命令格式与目录处理命令ls</h4><p>命令格式： 命令 [-选项] [参数]</p>
+<p>​    例： ls -la /etc</p>
+<p>说明： </p>
 <ol>
-<li>将函数作为另一个函数的返回</li>
-<li>将函数作为实参作为另一个函数调用</li>
-</ol>
+<li><p>个别命令使用不遵循此格式</p>
+</li>
+<li><p>当有多个选项时，可以写在一起</p>
+</li>
+<li><p>简化选项与完场选项 -a 等于 –all</p>
 </li>
 </ol>
-<h2 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h2><ol>
-<li>使用函数内部的变量在函数执行完后，仍然存活在内存中（延长了局部变量的生命周期）</li>
-<li>让函数外部可以操作（读写）到函数内部的数据（变量/函数）</li>
-</ol>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
-<li>函数执行完后，函数内部声明的局部变量是否还存在？ 一般不存在，存在于闭包中的变量才可能存在。</li>
-<li>在函数外部能直接访问函数内部的局部变量吗？不能，但是我们可以通过闭包让外部操作它。</li>
-</ol>
-<h2 id="闭包的生命周期"><a href="#闭包的生命周期" class="headerlink" title="闭包的生命周期"></a>闭包的生命周期</h2><ol>
-<li>产生：在嵌套内部函数定义执行完成时就产生了（不是在调用）</li>
-<li>死亡：在嵌套的内部函数成为垃圾对象时</li>
-</ol>
-<h2 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h2><ol>
-<li>定义JS模块<ul>
-<li>具有特定功能的JS文件</li>
-<li>将所有的数据和功能都封装在一个函数内部（私有的）</li>
-<li>只向外暴露一个包含n个方法的对象和函数</li>
-<li>模块的使用者，只需要通过模块暴露的对象调用方法来实现对应的功能<h2 id="闭包的缺点"><a href="#闭包的缺点" class="headerlink" title="闭包的缺点"></a>闭包的缺点</h2><ul>
-<li>函数执行完毕之后，函数内部的局部变量没有释放，占用内存的时间变长。</li>
-<li>容易造成内存泄漏</li>
-<li>*解决**</li>
-<li>能不用闭包就不用</li>
-<li>及时释放</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="内存溢出与内存泄漏"><a href="#内存溢出与内存泄漏" class="headerlink" title="内存溢出与内存泄漏"></a>内存溢出与内存泄漏</h2><ol>
-<li>内存溢出<ol>
-<li>一种程序运行出现的错误</li>
-<li>当程序运行的内存超过了剩余的内存时，就抛出内存溢出的错误</li>
-</ol>
-</li>
-<li>内存泄漏<ol>
-<li>占用的内存没有及时释放</li>
-<li>内存泄漏积累多了就会导致内存溢出</li>
-<li>常见的内存泄漏<ul>
-<li>意外的全局变量</li>
-<li>没有及时清理的定时器或回调函数</li>
-<li>闭包</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="继承模式"><a href="#继承模式" class="headerlink" title="继承模式"></a>继承模式</h1><ol>
-<li><p>方式1，原型链的继承</p>
-<ol>
-<li>套路<ul>
-<li>定义父类型构造函数</li>
-<li>给父类型的原型添加方法</li>
-<li>定义子类型的构造函数</li>
-<li>创建父类型的对象赋值给子类型的原型</li>
-<li>将子类原型的结构属性属性设置为子类型</li>
-<li>给子类型原型添加方法</li>
-<li>创建子类型的对象：可以调用父类型的方法</li>
-</ul>
-</li>
-<li>关键<ul>
-<li>子类型的原型为父类型的一个实例对象</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>借用构造函数继承（假的）</p>
-<ol>
-<li><p>套路</p>
-<ol>
-<li>定义父类型构造函数</li>
-<li>定义子类型构造函数</li>
-<li>在子类型构造函数中间调用父类型构造函数</li>
-</ol>
-</li>
-<li><p>关键：</p>
-<ol>
-<li>在子类型构造函数中通过call()调用父类型构造函数</li>
-</ol>
-</li>
-<li><p>组合继承</p>
-</li>
-<li><p>原型链+借用构造函数的组合继承</p>
-<ol>
-<li>利用原型链实现对父类型方法的继承</li>
-<li>利用super()借用父类型构造函数初始化相同的属性</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="线程机制与事件机制"><a href="#线程机制与事件机制" class="headerlink" title="线程机制与事件机制"></a>线程机制与事件机制</h1><h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><p>   <strong>进程：</strong>　程序的一次执行，它占有一片独有的内存空间。　可以通过windows任务管理器查看进程<br>   <strong>线程：</strong> </p>
-<ul>
-<li><p>是进程内的一个独立执行单元</p>
-</li>
-<li><p>是程序执行的一个完整流程</p>
-</li>
-<li><p>是cpu的最小调度单位</p>
-</li>
-<li><p>*相关知识：**</p>
-</li>
-<li><p>应用程序必须运行在某个进程的某个线程上</p>
-</li>
-<li><p>一个进程中至少有一个运行的线程： 主线程，进程启动之后自动创建</p>
-</li>
-<li><p>一个进程中也可以同时运行多个线程，我们会说程序是多线程运行的</p>
-</li>
-<li><p>一个进程内的数据可以供其中的多个线程直接共享</p>
-</li>
-<li><p>多个进程之间的数据不能直接进行共享的</p>
-</li>
-<li><p>线程池（thread pool）: 保存多个线程对象的容器，实现线程对象的反复利用<br>　　<br><strong>相关问题：</strong></p>
-<ul>
-<li>何为多进程程与多线程</li>
-<li>多进程运行： 一个应用程序可以同时启动多个实例运行</li>
-<li>多线程： 在一个进程内，同时有多个线程运行</li>
-<li>比较单线程和多线程<ol>
-<li>多线程<ol>
-<li>优点：<ul>
-<li>能有效提升cpu的利用率</li>
-</ul>
-</li>
-<li>缺点：<ul>
-<li>创建多线程开销</li>
-<li>线程之间切换开销</li>
-<li>死锁与状态同步问题</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>单线程<ol>
-<li>优点：<ul>
-<li>顺序编程简单易懂</li>
-</ul>
-</li>
-<li>缺点：<ul>
-<li>效率低<h2 id="js-是单线程还是多线程"><a href="#js-是单线程还是多线程" class="headerlink" title="js 是单线程还是多线程"></a>js 是单线程还是多线程</h2></li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>js是单线程运行</p>
-</li>
-<li><p>但使用H5中的 Web Workers可以多线程运行</p>
-<h2 id="浏览器运行是单线程还是多线程？"><a href="#浏览器运行是单线程还是多线程？" class="headerlink" title="浏览器运行是单线程还是多线程？"></a>浏览器运行是单线程还是多线程？</h2></li>
-<li><p>都是多线程运行的</p>
-<h2 id="浏览器是单进程还是多进程？"><a href="#浏览器是单进程还是多进程？" class="headerlink" title="浏览器是单进程还是多进程？"></a>浏览器是单进程还是多进程？</h2></li>
-<li><p>有的是单进程的</p>
-<ul>
-<li>firefox</li>
-<li>老版IE</li>
-</ul>
-</li>
-<li><p>有的是多线程的</p>
-<ul>
-<li>chrome</li>
-<li>新版IE</li>
-</ul>
-</li>
-<li><p>如何查看浏览器是否是多进程运行呢？</p>
-<ul>
-<li>任务管理器 </li>
-</ul>
-</li>
-</ul>
-<h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><p> 支持浏览器运行的最核心的程序<br> 不同浏览器可能不一样</p>
-<ul>
-<li>Chrome, Safari: webkit</li>
-<li>firefox: Gecko</li>
-<li>IE: Trident</li>
-<li>360,搜狗等国内浏览器： Trident + webkit<h3 id="内核由很多模块组成"><a href="#内核由很多模块组成" class="headerlink" title="内核由很多模块组成"></a>内核由很多模块组成</h3>== 主线程 ==</li>
-<li>js引擎模块： 负责js程序的编译和运行</li>
-<li>Html、css文档解析模块： 负责页面文本的解析</li>
-<li>DOM/CSS模块： 负责dom/css在内存中间的相关处理</li>
-<li>布局和渲染模块: 负责页面的布局效果的绘制（内存中的对象）<br>== 分线程 ==</li>
-<li>定时器模块：负责定时器的管理</li>
-<li>DOM事件响应模块： 负责事件的管理</li>
-<li>网络请求模块： 负责ajax请求<h2 id="Web-workers"><a href="#Web-workers" class="headerlink" title="Web workers"></a>Web workers</h2><ol>
-<li>H5 规范提供了js分线程实现，取名为Web Workers</li>
-<li>相关API</li>
-<li>Worker：构造函数，加载分线程执行的js文件</li>
-<li>Woker.prototype.onmessage: 用于接收另一个线程的回调函数</li>
-<li>Worker.prototype.postMessage: 向另一个线程发送消息</li>
-<li>不足</li>
-<li>Worker代码不能操作DOM(更新UI)</li>
-<li>不能跨域加载JS</li>
-<li>不是每个浏览器都支持这个新特性</li>
-</ol>
-</li>
-</ul>
+<p><strong>ls</strong></p>
+<pre class=" language-shell"><code class="language-shell">ls // 显示目录
+ls -a // 查看所有文件，可看到隐藏文件，为了告诉用户不可轻易操纵 .开头的就是隐藏文件
+ls -l // 长格式显示 
+    -rw-------. 1 root root  1208 12月 23 08:33 anaconda-ks.cfg
+    文件权限 引用次数 文件所有者 文件所属组 文件的大小（默认字节） 最后一次修改时间 文件名
+    -rw-r--r--
+    -: 文件 d: 目录 l: 软连接
+    r: 读 w: 写 x: 执行
+    rw- r-- r--
+    u所有者 g所属组 o其他人
+
+ls -ld /etc d: 显示目录本身，而不显示目录下的数据
+
+ls -i i: 文件的i节点
+</code></pre>
 
             </div>
             <hr/>
@@ -831,7 +651,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://guozhitao.top/2020/12/02/javascript-ji-chu/">http://guozhitao.top/2020/12/02/javascript-ji-chu/</a>
+                    <a href="http://guozhitao.top/2020/12/23/xiong-di-lian-linux-bi-ji/">http://guozhitao.top/2020/12/23/xiong-di-lian-linux-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -869,8 +689,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">javascript基础</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -1301,9 +1121,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/12/23/xiong-di-lian-linux-bi-ji/">
                     <div class="card-image">
@@ -1332,9 +1153,9 @@ Linux不靠扩展名区分文件类型
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1347,6 +1168,7 @@ Linux不靠扩展名区分文件类型
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1365,42 +1187,47 @@ Linux不靠扩展名区分文件类型
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/29/jing-dian-san-da-pai-xu/">
+                <a href="/2020/12/02/javascript-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="经典三大排序">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="javascript基础">
                         
-                        <span class="card-title">经典三大排序</span>
+                        <span class="card-title">javascript基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            排序
-三大经典排序 | 冒泡排序，选择排序，快速排序
+                            
+javascript 高级 笔记
 
-冒泡排序直接上偷来的图
-选择排序
-快速排序
-快速排序（Quicksort）的Javascript实现
+执行上下文执行上下文
+代码分类
 
-代码/**
- * @file 快速排序和冒泡排序
- * @author 郭治涛
+全局代码
+函数代码（局部）
 
+
+全局执行上下文
+
+在执行全局代码前将window确定为全局执行上下文
+
+对全局数据进行预处理   变量提升
+
+var 定义的全局变量==
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -1410,8 +1237,8 @@ Linux不靠扩展名区分文件类型
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
+                    <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">javascript基础</span>
                     </a>
                     
                 </div>

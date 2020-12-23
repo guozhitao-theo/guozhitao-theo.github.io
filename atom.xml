@@ -6,7 +6,7 @@
   <link href="http://guozhitao.top/atom.xml" rel="self"/>
   
   <link href="http://guozhitao.top/"/>
-  <updated>2020-12-06T14:21:57.317Z</updated>
+  <updated>2020-12-23T17:27:13.992Z</updated>
   <id>http://guozhitao.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>兄弟连Linux笔记</title>
+    <link href="http://guozhitao.top/2020/12/23/xiong-di-lian-linux-bi-ji/"/>
+    <id>http://guozhitao.top/2020/12/23/xiong-di-lian-linux-bi-ji/</id>
+    <published>2020-12-23T15:30:00.000Z</published>
+    <updated>2020-12-23T17:27:13.992Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;兄弟连Linux笔记&quot;&gt;&lt;a href=&quot;#兄弟连Linux笔记&quot; class=&quot;headerlink&quot; title=&quot;兄弟连Linux笔记&quot;&gt;&lt;/a&gt;兄弟连Linux笔记&lt;/h1&gt;&lt;h2 id=&quot;3-1-注意&quot;&gt;&lt;a href=&quot;#3-1-注意&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="linux" scheme="http://guozhitao.top/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>javascript基础</title>
