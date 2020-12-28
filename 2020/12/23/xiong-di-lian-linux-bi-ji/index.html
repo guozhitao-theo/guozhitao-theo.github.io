@@ -755,6 +755,74 @@ man 5 passwd // 配置文件的帮助信息</code></pre>
 <p>–help 获得用户帮助</p>
 <p><strong>help</strong> 获得shell内置命令的帮助信息(找不到路径的命令都是shell的内置命令)</p>
 <pre class=" language-shell"><code class="language-shell">help [命令]</code></pre>
+<h3 id="4-5-用户管理命令"><a href="#4-5-用户管理命令" class="headerlink" title="4.5 用户管理命令"></a>4.5 用户管理命令</h3><p><strong>useradd</strong> 添加一个用户</p>
+<pre class=" language-shell"><code class="language-shell">useradd 用户名</code></pre>
+<p><strong>passwd</strong> 更改或者设置密码</p>
+<pre class=" language-shell"><code class="language-shell">passwd 用户名</code></pre>
+<p><strong>who</strong> 查看登陆用户信息</p>
+<pre class=" language-shell"><code class="language-shell">who</code></pre>
+<h3 id="4-6-压缩解压命令"><a href="#4-6-压缩解压命令" class="headerlink" title="4.6 压缩解压命令"></a>4.6 压缩解压命令</h3><p><strong>gzip</strong> 压缩文件  源文件不保存</p>
+<pre class=" language-shell"><code class="language-shell">gzip 压缩</code></pre>
+<p><strong>gunzip</strong> 解压缩.gz的 压缩文件</p>
+<pre class=" language-shell"><code class="language-shell">gunzip [压缩文件]</code></pre>
+<p><strong>tar</strong> 打包目录</p>
+<pre class=" language-shell"><code class="language-shell">tar 选项[zcf] [压缩后的文件名] [目录]
+    -c 打包
+    -v 显示详细信息
+    -f 指定文件名
+    -z 打包同时压缩</code></pre>
+<p><strong>tar</strong> 解压缩语法</p>
+<pre class=" language-shell"><code class="language-shell">tar -x 解包
+    -v 显示详细信息
+    -f 指定解压文件
+    -z 解压缩</code></pre>
+<p><strong>zip</strong> 压缩文件或者目录 能保存原文件</p>
+<pre class=" language-shell"><code class="language-shell">zip 选项[-r] [压缩后文件名] [文件或者目录]
+        -r    压缩目录
+</code></pre>
+<p><strong>unzip</strong> 解压缩</p>
+<pre class=" language-shell"><code class="language-shell">unzip 解压缩的文件</code></pre>
+<p><strong>bzip2</strong> 压缩文件</p>
+<pre class=" language-shell"><code class="language-shell">bzip2 选项 [-k] [文件]
+            -k 产生压缩文件后保留原文件
+            // 压缩后的文件格式 .bz2</code></pre>
+<p><strong>bunzip2</strong> 解压缩</p>
+<pre class=" language-shell"><code class="language-shell">bunzip2 选项 [-k] [压缩文件]
+              -k 解压缩之后保留原文件</code></pre>
+<h3 id="4-7-网络命令"><a href="#4-7-网络命令" class="headerlink" title="4.7 网络命令"></a>4.7 网络命令</h3><p><strong>write</strong> 给在线用户发信息，以Ctrl+D保存结束后</p>
+<pre class=" language-shell"><code class="language-shell">write 用户名</code></pre>
+<p><strong>wall</strong> （write all）给所有在线用户发广播消息</p>
+<pre class=" language-shell"><code class="language-shell">write [message]</code></pre>
+<p><strong>ping</strong> 测试网络连通性</p>
+<pre class=" language-shell"><code class="language-shell">ping 选项 ip地址
+     -c 指定发送次数</code></pre>
+<p>**ifconfig ** interface configure 查看和设置网卡信息</p>
+<pre class=" language-shell"><code class="language-shell">ifcongfig 网卡名称 ip地址</code></pre>
+<p><strong>mail</strong> 查看发送电子邮件</p>
+<pre class=" language-shell"><code class="language-shell">mail [用户名]</code></pre>
+<p><strong>last</strong> 列出目前与过去登陆系统的用户信息</p>
+<pre class=" language-shell"><code class="language-shell">last</code></pre>
+<p><strong>lastlog</strong> 列出所有的用户</p>
+<pre class=" language-shell"><code class="language-shell">lastlog -u</code></pre>
+<p><strong>traceroute</strong> 显示数据包到主句间的路径</p>
+<pre class=" language-shell"><code class="language-shell">traceroute </code></pre>
+<p><strong>netstat</strong> 显示网络相关信息</p>
+<pre class=" language-shell"><code class="language-shell">netstat [选项]
+        -t   tcp协议
+        -u      UDP协议
+        -l   监听
+        -r      路由
+        -n     显示IP地址和端口号
+
+netstat -tuln // 协议 接收数据包排序 发送数据包排序 本地ip端口 远端ip端口 状态
+netstat -an  // 查看所有的监听信息
+netstat -rn 查看路由表</code></pre>
+<p><strong>setup</strong> 配置网络 永久生效</p>
+<pre class=" language-shell"><code class="language-shell">setup</code></pre>
+<p><strong>mount</strong> 把设备挂载到挂载点</p>
+<pre class=" language-shell"><code class="language-shell">mount [-t 文件系统] 设备文件名 挂载点</code></pre>
+<p><strong>unmount</strong> 卸载</p>
+<pre class=" language-shell"><code class="language-shell">unmount 设备名或者挂载点</code></pre>
 
             </div>
             <hr/>
