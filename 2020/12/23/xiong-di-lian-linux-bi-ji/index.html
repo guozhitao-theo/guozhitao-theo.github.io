@@ -1103,6 +1103,188 @@ netstat -rn 查看路由表</code></pre>
 <pre><code>* 经过编译，不再可以看到源码
 * 功能选择不如源码灵活
 * 依赖性</code></pre>
+<h4 id="6-2-RPM包管理命令-rpm命令管理"><a href="#6-2-RPM包管理命令-rpm命令管理" class="headerlink" title="6.2 RPM包管理命令 - rpm命令管理"></a>6.2 RPM包管理命令 - rpm命令管理</h4><h5 id="6-2-1-RPM-包命名与依赖性"><a href="#6-2-1-RPM-包命名与依赖性" class="headerlink" title="6.2.1 RPM 包命名与依赖性"></a>6.2.1 RPM 包命名与依赖性</h5><pre class=" language-shell"><code class="language-shell">httpd-2.2.15-15.el6.centos.l.i686.rpm
+httpd              软件包名
+2.2.15             软件版本
+15                   软件发布次数
+el6.centos      适合Linux平台
+i686            适合的硬件平台
+rpm                rpm扩展名</code></pre>
+<p><strong>RPM包依赖性</strong></p>
+<ul>
+<li><p>树形依赖</p>
+<p>a-&gt;b-&gt;c</p>
+</li>
+<li><p>环形依赖</p>
+<p>a-&gt;b-&gt;c-&gt;a</p>
+</li>
+<li><p>模块依赖</p>
+<p><a target="_blank" rel="noopener" href="http://www.rpmfind.net/">www.rpmfind.net</a></p>
+</li>
+</ul>
+<h5 id="6-2-2-rpm命令管理-安装升级与卸载"><a href="#6-2-2-rpm命令管理-安装升级与卸载" class="headerlink" title="6.2.2 rpm命令管理-安装升级与卸载"></a>6.2.2 rpm命令管理-安装升级与卸载</h5><ol>
+<li><p>包全名与包名</p>
+<ul>
+<li><p>包全名：</p>
+<p>操作的包是没有安装的软件包时，使用包全名。而且要注意路径</p>
+</li>
+<li><p>包名：</p>
+<p>操作已经安装的软件包时，使用包名。是搜索/var/lib/rpm/中的数据库</p>
+</li>
+</ul>
+</li>
+<li><p>rpm安装</p>
+<pre class=" language-shell"><code class="language-shell">rpm -ivh 包全名
+选项：
+    -i (install)            安装
+    -v (verbose)             显示详细信息
+    -h (hash)                显示进度
+    --nodeps                不检测依赖性 
+</code></pre>
+</li>
+<li><p>RPM包升级</p>
+<pre class=" language-shell"><code class="language-shell">rpm -Uvh 包全名
+选项：
+    -U (upgrade)         升级</code></pre>
+</li>
+</ol>
+<ol start="4">
+<li><p>卸载</p>
+<pre class=" language-shell"><code class="language-shell">rpm -e 包名
+选项：
+    -e (erase)         卸载
+    --nodepe        不检测依赖性 </code></pre>
+</li>
+</ol>
+<h5 id="6-2-3-rpm命令管理-查询"><a href="#6-2-3-rpm命令管理-查询" class="headerlink" title="6.2.3 rpm命令管理-查询"></a>6.2.3 rpm命令管理-查询</h5><ol>
+<li><p>查询是否安装</p>
+<pre class=" language-shell"><code class="language-shell">rpm - q 包名
+# 查询包是否安装
+选项： 
+    -q 查询（query）
+
+rpm -qa
+# 查询所有已经安装的RPM包
+选项：
+    -a 所有 （all）</code></pre>
+</li>
+</ol>
+<ol start="2">
+<li><p>查询软件包信息</p>
+<pre class=" language-shell"><code class="language-shell">rpm -qi 包名
+选项：
+    -i 查询软件信息 （information）
+    -p 查询未安装包信息（package） </code></pre>
+</li>
+<li><p>查询包中文件的安装位置</p>
+<pre class=" language-shell"><code class="language-shell">rpm -ql 包名
+选项： 
+    -l 列表（list）
+    -p 查询未安装包信息（package）</code></pre>
+</li>
+<li><p>查询系统文件属于哪一个RPM包</p>
+<pre class=" language-shell"><code class="language-shell">rpm -qf 系统文件名
+选项： 
+    -f 查询系统文件属于哪个软件包（file）</code></pre>
+</li>
+<li><p>查询软件包的依赖性</p>
+<pre class=" language-shell"><code class="language-shell">-R 查询软件包的依赖性（requires）
+-p 查询未安装包信息 (package) </code></pre>
+</li>
+</ol>
+<h5 id="6-2-4-rpm命令管理-校验和文件提取"><a href="#6-2-4-rpm命令管理-校验和文件提取" class="headerlink" title="6.2.4 rpm命令管理-校验和文件提取"></a>6.2.4 rpm命令管理-校验和文件提取</h5><ol>
+<li><p>RPM 包校验</p>
+<pre class=" language-shell"><code class="language-shell">rpm -V 已安装的包名
+选项：
+    -V 校验指定RPM包中的文件（verify）</code></pre>
+<p>验证内容中的8个信息内容如下：</p>
+<pre><code>* S    文件大小是否改变
+* M 文件的类型或文件的权限（rwx）是否被改变
+* 5 文件MD5校验和是否改变（可以看成文件内容是否改变）
+* D 设备的中，从代码是否改变
+* L 文件的路径是否改变
+* U 文件的属性（所有者）是否改变
+* G 文件的属组是否改变
+* T 文件的修改时间是否改变</code></pre>
+<p><strong>文件类型</strong></p>
+<pre class=" language-shell"><code class="language-shell">* c     配置文件（config file）
+* d     普通文件（documentation）
+* g     "鬼"文件（ghost file）, 很少见，，就是该文件不应该被这个RPM包包含
+* l        授权文件（license file）
+* r        描述文件（read me）</code></pre>
+</li>
+<li><p>ROM包中文件提取</p>
+<pre class=" language-shell"><code class="language-shell">rpm2cpio 包全名 | \
+cpio -idv .文件绝对路径
+
+rpm2cpio
+#将rpm包转换为cpio格式命令
+cpio
+#是一个标准工具，它用于创建软件档案文件和从档案文件中提取文件</code></pre>
+</li>
+</ol>
+<h4 id="6-3RPM包-yum在线管理"><a href="#6-3RPM包-yum在线管理" class="headerlink" title="6.3RPM包 yum在线管理"></a>6.3RPM包 yum在线管理</h4><h5 id="6-3-1IP地址配置个网络yum-源"><a href="#6-3-1IP地址配置个网络yum-源" class="headerlink" title="6.3.1IP地址配置个网络yum 源"></a>6.3.1IP地址配置个网络yum 源</h5><pre class=" language-shell"><code class="language-shell">setup
+vi /etc/sysconfig/network-scripts/ifcfg-eth0  
+# 把ONBOOT="no"改为ONBOOT=“yse"
+# 或者
+service network restart</code></pre>
+<p>网络源</p>
+<pre class=" language-shell"><code class="language-shell">vi /etc/yum.repos.d/CentOS-Base.repo
+ * [base]            容器名称，一定要放在[]中
+ * name                软件说明，可以自己随便写
+ * mirrorlist        镜像站点，这个可以注释掉
+ * baseurl            我们的yum源服务器的地址。默认是CentOS官方的yum源服务器，是可以使用的，如果你觉得慢可以改成你喜欢的yum源地址
+ * enabled            此容器是否生效，如果不写或者写成enable=1都是生效，写成enable=0就是不生效
+ * gpgcheck            如果是1是指RPM的数字证书生效，如果是0则不生效
+ * gpgkey            数字证书公钥文件保存位置，不用修改</code></pre>
+<h5 id="6-3-2-yum命令"><a href="#6-3-2-yum命令" class="headerlink" title="6.3.2 yum命令"></a>6.3.2 yum命令</h5><ol>
+<li><p>常用命令</p>
+<ul>
+<li>查询</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">
+yum list
+# 查询所有可用软件包列表
+yum search 关键字
+# 搜索服务器上所有和关键字相关的包
+
+</code></pre>
+</li>
+</ol>
+<pre><code>
+* 安装
+
+```shell
+yum -y install 包名
+选项：
+    install       安装
+    -y           自动回答yes</code></pre>
+<ul>
+<li><p>升级</p>
+<pre class=" language-shell"><code class="language-shell">yum -y update 包名
+选项：
+  update        升级
+  -y            自动回答yes</code></pre>
+</li>
+<li><p>卸载</p>
+<pre class=" language-shell"><code class="language-shell">yum -y remove 包名
+选项：
+  remove        卸载
+  -y            自动回答yes</code></pre>
+</li>
+</ul>
+<ol start="2">
+<li><p>YUM 软件组管理命令</p>
+<pre class=" language-shell"><code class="language-shell">yum grouplist
+# 列出所有可用的软件组列表
+
+yum groupinstall 软件组名
+# 安装指定软件组，组名可以由grouplist查询出来
+
+yum groupremove 软件组名
+# 卸载指定软件组</code></pre>
+</li>
+</ol>
 
             </div>
             <hr/>
