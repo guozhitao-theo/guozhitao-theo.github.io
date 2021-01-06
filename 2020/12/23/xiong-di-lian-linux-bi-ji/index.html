@@ -1285,6 +1285,147 @@ yum groupremove 软件组名
 # 卸载指定软件组</code></pre>
 </li>
 </ol>
+<h5 id="6-3-3-yum在线管理-光盘yum源"><a href="#6-3-3-yum在线管理-光盘yum源" class="headerlink" title="6.3.3 yum在线管理-光盘yum源"></a>6.3.3 yum在线管理-光盘yum源</h5><ol>
+<li><p>挂载光盘</p>
+<pre class=" language-shell"><code class="language-shell">mount /dev/cdrom /mnt/cdrom</code></pre>
+</li>
+<li><p>让网络yum源文件失效</p>
+<pre class=" language-SHELL"><code class="language-SHELL">cd /etc/yum.repos.d/
+mv CentOs-Base.repo \ CentOS-Base.repo.bak
+mv CentOS-Debuginfo.repo \ CentOS-Debuginfo.repo.bak
+mv CentOS-Vault.repo \ CentOS-Vault.repo.bak</code></pre>
+</li>
+<li><p>修改光盘yum源</p>
+<pre class=" language-shell"><code class="language-shell">vim CentOS-Media.repo 
+    [c6-media] 
+    nme = CentOS-$releasever - Media
+    baseurl=file:///mnt/cdrom
+    # 地址为你自己的光盘挂载地址
+    # file:///media/cdrom
+    # file:///media/cdrecorder
+    # 注释这两个不存在的地址
+    gpgcheck=1
+    enabled=1
+    # 把enable=0改为enable=1，让这个yum源配置文件生效
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6</code></pre>
+</li>
+</ol>
+<h4 id="6-4-源码包与RPM包的区别"><a href="#6-4-源码包与RPM包的区别" class="headerlink" title="6.4 源码包与RPM包的区别"></a>6.4 源码包与RPM包的区别</h4><h5 id="6-4-1-源码包与RPM包的区别"><a href="#6-4-1-源码包与RPM包的区别" class="headerlink" title="6.4.1 源码包与RPM包的区别"></a>6.4.1 源码包与RPM包的区别</h5><ol>
+<li><p>区别</p>
+<ul>
+<li>安装前的区别： 概念上的区别</li>
+<li>安装后的区别： 安装位置不同</li>
+</ul>
+</li>
+<li><p>RPM包安装位置</p>
+<p><strong>RPM包默认安装路径</strong></p>
+<table>
+<thead>
+<tr>
+<th>/etc/</th>
+<th>配置文件安装目录</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/usr/bin/</td>
+<td>可执行的命令安装目录</td>
+</tr>
+<tr>
+<td>/usr/lib/</td>
+<td>程序所使用的函数库保存位置</td>
+</tr>
+<tr>
+<td>/usr/share/doc/</td>
+<td>基本的软件使用手册保存位置</td>
+</tr>
+<tr>
+<td>/usr/share/man/</td>
+<td>帮助文件保存位置</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>源码包安装位置</p>
+<ul>
+<li>安装在指定位置当中，一般是/usr/local/软件名/</li>
+</ul>
+</li>
+<li><p>安装位置不同带来的影响</p>
+<ul>
+<li>RPM包安装的服务可以使用系统服务管理命令（service）来管理，例如RPM包安装的apache的启动方法是<ul>
+<li>/etc/rc.d/init.d/httpd start</li>
+<li>service httpd start</li>
+</ul>
+</li>
+<li>而源码包安装的服务则不能被服务管理命令管理，因为没有安装到默认路径中，所以只能用绝对路径进行服务管理，如：<ul>
+<li>/usr/local/apache2/bin/apachectl start</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="6-4-2-源码包管理"><a href="#6-4-2-源码包管理" class="headerlink" title="6.4.2 源码包管理"></a>6.4.2 源码包管理</h5><ol>
+<li><p>安装准备</p>
+<ul>
+<li>安装C语言编译器</li>
+<li>下载源码包</li>
+</ul>
+</li>
+<li><p>安装注意事项</p>
+<ul>
+<li>源代码保存位置： /usr/local/src/</li>
+<li>软件安装位置：/usr/local/</li>
+<li>如何确认安装过程报错：<ul>
+<li>安装过程停止</li>
+<li>并出现error、warning或no的提示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>源码包安装过程</p>
+<ul>
+<li>下载源码包</li>
+<li>解压缩下载的源码包</li>
+<li>进入解压缩目录</li>
+<li>./configure 软件配置与检查(–prefix=指定路径)<ul>
+<li>定义需要的功能选项</li>
+<li>检测系统环境是否符合安装要求</li>
+<li>把定义好的功能选项和检测系统环境的信息都写入Makefile文件，用于后续的编辑。</li>
+</ul>
+</li>
+<li>make 编译<ul>
+<li>(若make 报错)make clean</li>
+</ul>
+</li>
+<li>make install 编译安装</li>
+</ul>
+</li>
+<li><p>源码包的卸载</p>
+<ul>
+<li>不需要卸载命令，直接删除安装目录即可。不会遗留任何垃圾文件。</li>
+</ul>
+</li>
+</ol>
+<h4 id="6-5-脚本安装包"><a href="#6-5-脚本安装包" class="headerlink" title="6.5 脚本安装包"></a>6.5 脚本安装包</h4><ol>
+<li><p>脚本安装包</p>
+<ul>
+<li>脚本安装包并不是独立的软件包类型，常见安装的是源码包</li>
+<li>是人为把安装过程写成了自动安装的脚本，只要执行脚本，定义简单的参数，就可以完成安装。</li>
+<li>非常类似于Windows下软件的安装方式。</li>
+</ul>
+</li>
+<li><p>Webmin的作用</p>
+<ul>
+<li>Webmin 是一个基于Web的Linux系统管理界面。您就可以通过图形化的方式设置用户账号、Apache、DNS、文件共享等服务。</li>
+</ul>
+</li>
+<li><p>Webmin安装过程</p>
+<ul>
+<li>下载软件</li>
+<li>解压缩，并进入解压缩目录</li>
+<li>执行安装脚本   </li>
+</ul>
+</li>
+</ol>
 
             </div>
             <hr/>
