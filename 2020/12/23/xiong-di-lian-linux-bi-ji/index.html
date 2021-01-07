@@ -1426,6 +1426,111 @@ mv CentOS-Vault.repo \ CentOS-Vault.repo.bak</code></pre>
 </ul>
 </li>
 </ol>
+<h2 id="7-用户配置文件"><a href="#7-用户配置文件" class="headerlink" title="7 用户配置文件"></a>7 用户配置文件</h2><h3 id="7-1-用户信息文件"><a href="#7-1-用户信息文件" class="headerlink" title="7.1 用户信息文件"></a>7.1 用户信息文件</h3><h4 id="7-1-1-用户信息文件-etc-passwd"><a href="#7-1-1-用户信息文件-etc-passwd" class="headerlink" title="7.1.1 用户信息文件/etc/passwd"></a>7.1.1 用户信息文件/etc/passwd</h4><ol>
+<li><p>用户管理简介<br>*　越是对服务器安全性要求高的服务器，越需要建立合理的用户权限等级制度和服务器操作规范。<br>*　在Linux中主要是通过用户配置文件来查看和修改用户信息。</p>
+</li>
+<li><p>/etc/passwd</p>
+<ul>
+<li>第1个字段： 用户名称</li>
+<li>第2个字段： 密码标志</li>
+<li>第3个字段： UID(用户ID)<ul>
+<li>0：超级用户</li>
+<li>1-  499： 系统用户</li>
+<li>500 - 65535： 普通用户</li>
+</ul>
+</li>
+<li>第4个字段：GID(用户初始组ID)</li>
+<li>第5个字段： 用户说明</li>
+<li>第6个字段： 家目录<ul>
+<li>普通用户： /home/用户名</li>
+<li>超级用户：/root/</li>
+</ul>
+</li>
+<li>第7个字段： 登陆之后的Shell</li>
+</ul>
+</li>
+<li><p>初始组和附加组</p>
+<ul>
+<li>初始组： 就是指用户一登陆就立刻拥有这个用户组的相关权限，每个用户的初始组只能有一个，一般就是个这个用户的用户名相同的组名作为这个用户的初始组。</li>
+<li>附加组：指用户可以加入多个其他的用户组，并拥有这些组的权限，附加组可以有多个。 </li>
+</ul>
+</li>
+<li><p>Shell是什么</p>
+<ul>
+<li>Shell就是Linux的命令解释器。</li>
+<li>在/etc/passwd当中，除了标准Shell是/bin/bash之外，还可以写如/sbin/nologin。</li>
+</ul>
+</li>
+</ol>
+<h4 id="7-1-2-影子文件-etc-shadow"><a href="#7-1-2-影子文件-etc-shadow" class="headerlink" title="7.1.2 影子文件/etc/shadow"></a>7.1.2 影子文件/etc/shadow</h4><ol>
+<li><p>影子文件</p>
+<ul>
+<li><p>第1个字段： 用户名</p>
+<ul>
+<li>第2个字段：加密密码<ul>
+<li>加密算法升级为SHA512散列加密算法</li>
+<li>如果密码位是“!!” 或者“*”代表没有密码，不能登陆。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>第3个字段：密码最后一次修改日期</p>
+<ul>
+<li>使用1970年1月1日作为标准时间，每过一天时间戳加1  </li>
+</ul>
+</li>
+<li><p>第4个字段： 两次密码的修改间隔时间（和第3个字段相比较）</p>
+</li>
+<li><p>第5个字段：密码有效期（和第3个字段相比）</p>
+</li>
+<li><p>第6个字段： 密码修改到期前的警告天数（和第5个字段相比）</p>
+</li>
+<li><p>第7个字段： 密码过期后的宽限天数（和第5字段相比）</p>
+<ul>
+<li>0： 代表密码过期后立即失效</li>
+<li>-1： 代表密码永远不会失效</li>
+</ul>
+</li>
+<li><p>第8个字段： 账号失效时间</p>
+<ul>
+<li>要用时间戳表示</li>
+</ul>
+</li>
+<li><p>第9个字段： 保留</p>
+</li>
+</ul>
+</li>
+<li><p>时间戳换算</p>
+<ul>
+<li>把时间戳换算成日期<ul>
+<li>date -d “1970-01-01 16066 days”</li>
+</ul>
+</li>
+<li>把日期换算为时间戳<ul>
+<li>echo $(($(date –date=”2014/01/06”+%s)/86400+1))</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="7-1-3-组信息文件-etc-group和组密码文件-etc-gshadow"><a href="#7-1-3-组信息文件-etc-group和组密码文件-etc-gshadow" class="headerlink" title="7.1.3 组信息文件/etc/group和组密码文件/etc/gshadow"></a>7.1.3 组信息文件/etc/group和组密码文件/etc/gshadow</h4><ol>
+<li><p>组信息文件/etc/group</p>
+<ul>
+<li>第1个字段： 组名</li>
+<li>第2个字段：组密码标志</li>
+<li>第3个字段： GID</li>
+<li>第4个字段： 组中附加用户</li>
+</ul>
+</li>
+<li><p>组密码文件/etc/gshadow</p>
+<ul>
+<li>第1个字段： 组名</li>
+<li>第2个字段： 组密码</li>
+<li>第3个字段： 组管理员用户名</li>
+<li>第4个字段： 组中附加用户  </li>
+</ul>
+</li>
+</ol>
 
             </div>
             <hr/>
