@@ -6,7 +6,7 @@
   <link href="http://guozhitao.top/atom.xml" rel="self"/>
   
   <link href="http://guozhitao.top/"/>
-  <updated>2021-04-06T15:19:44.905Z</updated>
+  <updated>2021-04-07T14:29:55.070Z</updated>
   <id>http://guozhitao.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://guozhitao.top/2021/03/31/webpack/"/>
     <id>http://guozhitao.top/2021/03/31/webpack/</id>
     <published>2021-03-30T23:52:03.000Z</published>
-    <updated>2021-04-06T15:19:44.905Z</updated>
+    <updated>2021-04-07T14:29:55.070Z</updated>
     
     
       
@@ -29,12 +29,16 @@
         
         
     <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h1 id=&quot;webpack&quot;&gt;&lt;a href=&quot;#webpack&quot; class=&quot;headerlink&quot; title=&quot;webpack&quot;&gt;&lt;/a&gt;webpack&lt;/h1&gt;&lt;h2 id=&quot;webpack-基础配置&quot;&gt;&lt;a</summary>
+&lt;h1 id=&quot;webpack&quot;&gt;&lt;a href=&quot;#webpack&quot; class=&quot;headerlink&quot; title=&quot;webpack&quot;&gt;&lt;/a&gt;webpack&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
         
       
     
     
     
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="webpack" scheme="http://guozhitao.top/tags/webpack/"/>
     
   </entry>
   
