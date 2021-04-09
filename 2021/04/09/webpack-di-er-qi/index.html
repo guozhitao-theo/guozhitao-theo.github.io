@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>webpack | 郭治涛</title>
+    <title>webpack第二期 | 郭治涛</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">webpack</h1>
+                    <h1 class="description center-align post-title">webpack第二期</h1>
                 </div>
             </div>
         </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-31
+                    2021-04-09
                 </div>
                 
 
@@ -476,82 +476,114 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>[toc]</p>
-<h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><p><a target="_blank" rel="noopener" href="https://gitee.com/guozhitao/webpack-study">项目地址</a></p>
-<h2 id="webpack-基础配置"><a href="#webpack-基础配置" class="headerlink" title="webpack 基础配置"></a>webpack 基础配置</h2><h3 id="webpack-安装"><a href="#webpack-安装" class="headerlink" title="webpack 安装"></a>webpack 安装</h3><ul>
-<li>安装本地webpack</li>
-<li>webpack webpack-cli</li>
-</ul>
-<h3 id="webpack-可以进行0配置"><a href="#webpack-可以进行0配置" class="headerlink" title="webpack 可以进行0配置"></a>webpack 可以进行0配置</h3><ul>
-<li><p>打包工具 -&gt; 输出后的结果(js模块)</p>
-</li>
-<li><p>npx webpack -&gt; 找 node_modules下webpack.cmd</p>
-</li>
-<li><p>打包（支持js的模块化）</p>
-</li>
-</ul>
-<h3 id="手动配置webpack"><a href="#手动配置webpack" class="headerlink" title="手动配置webpack"></a>手动配置webpack</h3><ul>
-<li><p>默认配置文件的名字<code>webpack.config.js</code></p>
-</li>
-<li><p>npx webpack –config xxxx.js 手动指定配置文件</p>
-</li>
-<li><p>package.json 配置脚本</p>
-<pre class=" language-json"><code class="language-json"><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"webpack --config webpack.config.js"</span>
+<h1 id="webpack-dev-2"><a href="#webpack-dev-2" class="headerlink" title="webpack-dev-2"></a><a target="_blank" rel="noopener" href="https://gitee.com/guozhitao/webpack-dev-2">webpack-dev-2</a></h1><h2 id="配置多页面打包"><a href="#配置多页面打包" class="headerlink" title="配置多页面打包"></a>配置多页面打包</h2><ul>
+<li><p>配置多入口</p>
+<pre class=" language-javascript"><code class="language-javascript">entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    home<span class="token punctuation">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+    other<span class="token punctuation">:</span> <span class="token string">'./src/other.js'</span>
   <span class="token punctuation">}</span></code></pre>
-<h4 id="html-插件"><a href="#html-插件" class="headerlink" title="html 插件"></a>html 插件</h4><ul>
-<li>安装静态服务 <code>yarn add webpack-dev-server -D</code> 把文件生成到内存中，不会生成实际文件（webpack4 以及以上使用 webpack serve）</li>
-<li>配置html-webdpack-plugin</li>
+</li>
+<li><p>配置多出口</p>
+<pre class=" language-javascript"><code class="language-javascript">output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// [name] home, other</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'[name].js'</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></code></pre>
+</li>
+<li><p>配置多模板</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span> <span class="token string">'./index.html'</span><span class="token punctuation">,</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'home.html'</span><span class="token punctuation">,</span>
+    chunks<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'home'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span> <span class="token string">'./index.html'</span><span class="token punctuation">,</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'other.html'</span><span class="token punctuation">,</span>
+    chunks<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'other'</span><span class="token punctuation">,</span> <span class="token string">'home'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+</li>
 </ul>
-<h3 id="样式处理"><a href="#样式处理" class="headerlink" title="样式处理"></a>样式处理</h3><ul>
-<li><p>css-loader 解析@import 语法</p>
-</li>
-<li><p>style-loader 他是把css 插入到head的标签中</p>
-</li>
-<li><p>mini-css-extract-plugin 抽离css样式</p>
-</li>
-<li><p>postcss-loader autoprefixer 添加样式前缀</p>
+<h2 id="配置source-map"><a href="#配置source-map" class="headerlink" title="配置source-map"></a>配置source-map</h2><p>可能在解析js 的过程中会把高级语法解析成低级语法（@babel/core @babel/preset-env babel-loader ）</p>
+<p><a target="_blank" rel="noopener" href="https://webpack.js.org/configuration/devtool/">webpack: devtool</a></p>
 <ul>
-<li><p>注意： </p>
-<p>创建postcss.config.js文件的时候，需要在autoprefixer插件中使用 overrideBrowsweslist属性表示支持的版本。否则不生效</p>
-</li>
+<li>devtool: ‘source-map’ 源码映射 会单独生成一个sourcemap文件，出错了会标识当前报错的列和行， 大 和 全</li>
+<li>devtool: ‘eval-source-map’ 不会产生单独的文件 但是可以显示行和列</li>
+<li>devtool: ‘cheap-module-source-map’不会产生列 但是是一个单独的映射文件</li>
+<li>devtool: ‘eval-cheap-module-source-map’不会产生文件 集成在打包后的文件中，也不会产生列</li>
 </ul>
+<h2 id="watch-的用法"><a href="#watch-的用法" class="headerlink" title="watch 的用法"></a>watch 的用法</h2><p>watch: true</p>
+<p>watchOptions: {} // 监控的选项</p>
+<pre class=" language-javascript"><code class="language-javascript">watch<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+watchOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 监控的选项</span>
+   poll<span class="token punctuation">:</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 每秒问我1000次</span>
+   aggregateTimeout<span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 防抖 我一直输入代码 500ms内我输入的只打包一次</span>
+   ignored<span class="token punctuation">:</span> <span class="token string">'/node_module'</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="webpack-小插件应用"><a href="#webpack-小插件应用" class="headerlink" title="webpack 小插件应用"></a>webpack 小插件应用</h2><ol>
+<li>cleanWebpackPlugin</li>
+<li>copyWebpackPlugin</li>
+<li>bannerPlugin (内置)  （总是会生成一个新的文件，未找到解决方案）</li>
+</ol>
+<h2 id="webpack跨域问题"><a href="#webpack跨域问题" class="headerlink" title="webpack跨域问题"></a>webpack跨域问题</h2><ol>
+<li>服务端接口</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 重写的方式 把请求代理到服务器上</span>
+      <span class="token string">"/api/**"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000/"</span><span class="token punctuation">,</span>
+        pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"^/api"</span><span class="token punctuation">:</span> <span class="token string">""</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span></code></pre>
+<ol start="2">
+<li><p>前端mock 数据</p>
+<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// app 为express实例</span>
+    before <span class="token punctuation">(</span>app<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">'gzt-before'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
-<li><p>optimize-css-assets-webpack-plugin 压缩css (webpack5 需要设置minimize属性为true)</p>
+<li><p>有服务端 不用代理来处理 能不能在服务端启动webpack 端口用服务端端口</p>
 <ul>
-<li>使用之后必须使用 uglifyjs-webpack-plugin 才能压缩js （mode为production 才会压缩哦）</li>
+<li>引入webpack</li>
+<li>安装中间件 <code>webpack-dev-middleware</code></li>
+<li>将<code>webpack.config.js</code>通过webpack编译之后传入中间件</li>
+<li>服务端使用中间件</li>
 </ul>
 </li>
-</ul>
-<h3 id="转换高级js语法"><a href="#转换高级js语法" class="headerlink" title="转换高级js语法"></a>转换高级js语法</h3><ul>
-<li>bael-loader 转化 @babel/core 核心模块 @babel/preset-env 将高级语法转成低级语法</li>
-</ul>
-<h3 id="全局变量引入问题"><a href="#全局变量引入问题" class="headerlink" title="全局变量引入问题"></a>全局变量引入问题</h3><ul>
-<li>expose-loader 暴露全局的loader, 内联的loader。示例：<code>import $ from "expose-loader?exposes=$,jQuery!jquery"; // 把jquery暴露成$和jQuery</code></li>
-<li>或者配到配置文件里面<pre><code>* pre 前面执行的loader
-   * normal 普通的loader
-   * 内联loader
-* 后置 postloader</code></pre>
-<ul>
-<li>webpack.ProvidePlugin({$:”jquery”}) 在每个模块中都注入$符号<ul>
-<li>模板文件直接引入cdn</li>
-<li>externals 不需要打包</li>
-</ul>
+</ol>
+<h2 id="resolve-属性的配置"><a href="#resolve-属性的配置" class="headerlink" title="resolve 属性的配置"></a>resolve 属性的配置</h2><pre class=" language-javascript"><code class="language-javascript">resolve<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 解析 第三方 common</span>
+    modules<span class="token punctuation">:</span> <span class="token punctuation">[</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'node_modules'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 缩小模块查找范围</span>
+    extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.css'</span><span class="token punctuation">,</span> <span class="token string">'.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 先找js 没有 就找css 再找json</span>
+    mainFields<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'style'</span><span class="token punctuation">,</span> <span class="token string">'main'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 配置入口(package.json)</span>
+    <span class="token comment" spellcheck="true">// mainFiles: [], // 入口文件的名字 默认index</span>
+    alias<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 别名 vue.runtime</span>
+      <span class="token comment" spellcheck="true">// 'bootstrap': 'bootstrap/dist/css/bootstrap.css'</span>
+    <span class="token punctuation">}</span>
+
+  <span class="token punctuation">}</span></code></pre>
+<h2 id="定义环境变量"><a href="#定义环境变量" class="headerlink" title="定义环境变量"></a>定义环境变量</h2><p>webpack.DefinePlugin 插件 定义变量</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>DefinePlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    DEV<span class="token punctuation">:</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">'production'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    FLAG<span class="token punctuation">:</span> <span class="token string">'true'</span><span class="token punctuation">,</span>
+    EXPRESSION<span class="token punctuation">:</span> <span class="token string">'1 + 1'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h2 id="区分不同的环境"><a href="#区分不同的环境" class="headerlink" title="区分不同的环境"></a>区分不同的环境</h2><ol>
+<li><p>创建三个配置文件</p>
+<p><code>webpack.base.js</code>: 公共的配置</p>
+<p><code>webpack.dev.js</code>： 开发环境使用到的配置</p>
+<p><code>webpack.prod.js</code>： 生产环境使用到的配置</p>
 </li>
-</ul>
+<li><p>安装插件 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/webpack-merge">webpack-merge</a></p>
 </li>
-</ul>
-<h3 id="webpack-打包图片"><a href="#webpack-打包图片" class="headerlink" title="webpack 打包图片"></a>webpack 打包图片</h3><ul>
-<li>在js中创建图片来引入</li>
-<li>在css中引入 background（“url”）</li>
-<li>&lt;img src=”url” / &gt;</li>
-<li>file-loader 默认在内部生成一些文件在build目录下，把生成的文件的名字（路径）返回</li>
-<li>html-withimg-loader 解析html编译img（这个loader 会与file-loader 、url-loader冲突(生成的是defalut对象) 需要在file-loader 设置 options-&gt;esModule: false）</li>
-<li>url-loader 可以做限制，当图片小于多少k的时候 用base64转化 否则用file-loader 产生真实的文件</li>
-</ul>
-<h3 id="打包分类"><a href="#打包分类" class="headerlink" title="打包分类"></a>打包分类</h3><p> filename 加个上级目录 </p>
-<p>cdn 加个publicPath </p>
+<li><p>通过 <code>npm run xxx -- --config webpack.xx.js</code> 来指定配置文件</p>
 </li>
-</ul>
+</ol>
 
             </div>
             <hr/>
@@ -577,7 +609,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://guozhitao.top/2021/03/31/webpack/">http://guozhitao.top/2021/03/31/webpack/</a>
+                    <a href="http://guozhitao.top/2021/04/09/webpack-di-er-qi/">http://guozhitao.top/2021/04/09/webpack-di-er-qi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1047,9 +1079,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/04/09/webpack-di-er-qi/">
                     <div class="card-image">
@@ -1077,9 +1110,68 @@ output: {
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/31/webpack/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="webpack">
+                        
+                        <span class="card-title">webpack</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            [toc]
+webpack项目地址
+webpack 基础配置webpack 安装
+安装本地webpack
+webpack webpack-cli
+
+webpack 可以进行0配置
+打包工具 -&gt; 输出后的结果(js模块)
+
+npx w
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1099,43 +1191,6 @@ output: {
                         <span class="chip bg-color">webpack</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/28/shua-ti/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="刷题">
-                        
-                        <span class="card-title">刷题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            郭治涛
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
