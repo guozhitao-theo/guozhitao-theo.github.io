@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>郭治涛</title>
+  
+  <subtitle>别在该努力的年纪选择安逸</subtitle>
+  <link href="http://guozhitao.top/atom.xml" rel="self"/>
+  
+  <link href="http://guozhitao.top/"/>
+  <updated>2021-12-24T03:59:47.990Z</updated>
+  <id>http://guozhitao.top/</id>
+  
+  <author>
+    <name>郭治涛</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>兄弟连Linux笔记</title>
+    <link href="http://guozhitao.top/2020/12/23/xiong-di-lian-linux-bi-ji/"/>
+    <id>http://guozhitao.top/2020/12/23/xiong-di-lian-linux-bi-ji/</id>
+    <published>2020-12-23T15:30:00.000Z</published>
+    <updated>2021-12-24T03:59:47.990Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;兄弟连Linux笔记&quot;&gt;&lt;a href=&quot;#兄弟连Linux笔记&quot; class=&quot;headerlink&quot; title=&quot;兄弟连Linux笔记&quot;&gt;&lt;/a&gt;兄弟连Linux笔记&lt;/h1&gt;&lt;h2 id=&quot;3-1-注意&quot;&gt;&lt;a href=&quot;#3-1-注意&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="linux" scheme="http://guozhitao.top/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript基础</title>
+    <link href="http://guozhitao.top/2020/12/02/javascript-ji-chu/"/>
+    <id>http://guozhitao.top/2020/12/02/javascript-ji-chu/</id>
+    <published>2020-12-02T13:11:17.000Z</published>
+    <updated>2021-12-24T03:59:47.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1Mz4y1Q79G?p=27&quot;&gt;javascript 高级&lt;/a&gt; 笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;执行上下文&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="javascript基础" scheme="http://guozhitao.top/tags/javascript%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>经典三大排序</title>
+    <link href="http://guozhitao.top/2020/11/29/jing-dian-san-da-pai-xu/"/>
+    <id>http://guozhitao.top/2020/11/29/jing-dian-san-da-pai-xu/</id>
+    <published>2020-11-29T15:40:14.000Z</published>
+    <updated>2021-12-24T03:59:47.992Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;排序&quot;&gt;&lt;a href=&quot;#排序&quot; class=&quot;headerlink&quot; title=&quot;排序&quot;&gt;&lt;/a&gt;排序&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/42541704&quot;&gt;三大经典排序 |</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法" scheme="http://guozhitao.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="排序" scheme="http://guozhitao.top/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>事件</title>
+    <link href="http://guozhitao.top/2020/11/14/shi-jian/"/>
+    <id>http://guozhitao.top/2020/11/14/shi-jian/</id>
+    <published>2020-11-14T15:34:36.000Z</published>
+    <updated>2021-12-24T03:59:47.989Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;事件&quot;&gt;&lt;a href=&quot;#事件&quot; class=&quot;headerlink&quot; title=&quot;事件&quot;&gt;&lt;/a&gt;事件&lt;/h1&gt;&lt;h2 id=&quot;事件流&quot;&gt;&lt;a href=&quot;#事件流&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="js事件" scheme="http://guozhitao.top/tags/js%E4%BA%8B%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器安全</title>
+    <link href="http://guozhitao.top/2020/11/09/ke-hu-duan-jiao-ben-an-quan/"/>
+    <id>http://guozhitao.top/2020/11/09/ke-hu-duan-jiao-ben-an-quan/</id>
+    <published>2020-11-09T14:41:41.000Z</published>
+    <updated>2021-12-24T03:59:47.991Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;浏览器安全&quot;&gt;&lt;a href=&quot;#浏览器安全&quot; class=&quot;headerlink&quot; title=&quot;浏览器安全&quot;&gt;&lt;/a&gt;浏览器安全&lt;/h1&gt;&lt;p&gt;​    前言：</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="http://guozhitao.top/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="web安全, 浏览器安全" scheme="http://guozhitao.top/tags/web%E5%AE%89%E5%85%A8-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新建一个hexo博客</title>
+    <link href="http://guozhitao.top/2020/11/01/xin-jian-yi-ge-hexo-bo-ke/"/>
+    <id>http://guozhitao.top/2020/11/01/xin-jian-yi-ge-hexo-bo-ke/</id>
+    <published>2020-11-01T13:24:28.000Z</published>
+    <updated>2021-12-24T03:59:47.991Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;文章-Front-matter-介绍&quot;&gt;&lt;a href=&quot;#文章-Front-matter-介绍&quot; class=&quot;headerlink&quot; title=&quot;文章 Front-matter 介绍&quot;&gt;&lt;/a&gt;文章 Front-matter 介绍&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+    <category term="博客" scheme="http://guozhitao.top/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js执行机制</title>
+    <link href="http://guozhitao.top/2020/11/01/js-zhi-xing-ji-zhi/"/>
+    <id>http://guozhitao.top/2020/11/01/js-zhi-xing-ji-zhi/</id>
+    <published>2020-11-01T13:21:51.000Z</published>
+    <updated>2021-12-24T03:59:47.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;@[toc]&lt;/p&gt;
+&lt;h1 id=&quot;js的运行机制&quot;&gt;&lt;a href=&quot;#js的运行机制&quot; class=&quot;headerlink&quot; title=&quot;js的运行机制&quot;&gt;&lt;/a&gt;js的运行机制&lt;/h1&gt;&lt;h2 id=&quot;JavaScript为什么是单线程的&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="js" scheme="http://guozhitao.top/tags/js/"/>
+    
+  </entry>
+  
+</feed>
