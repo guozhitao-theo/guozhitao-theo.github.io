@@ -6,7 +6,7 @@
   <link href="http://guozhitao.top/atom.xml" rel="self"/>
   
   <link href="http://guozhitao.top/"/>
-  <updated>2021-12-24T03:59:47.990Z</updated>
+  <updated>2022-03-02T14:31:35.777Z</updated>
   <id>http://guozhitao.top/</id>
   
   <author>
@@ -15,6 +15,185 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue如何跑起来的</title>
+    <link href="http://guozhitao.top/2022/03/02/vue-ru-he-pao-qi-lai-de/"/>
+    <id>http://guozhitao.top/2022/03/02/vue-ru-he-pao-qi-lai-de/</id>
+    <published>2022-03-02T14:29:31.000Z</published>
+    <updated>2022-03-02T14:31:35.777Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Vue如何跑起来的&quot;&gt;&lt;a href=&quot;#Vue如何跑起来的&quot; class=&quot;headerlink&quot; title=&quot;Vue如何跑起来的&quot;&gt;&lt;/a&gt;Vue如何跑起来的&lt;/h1&gt;&lt;h2 id=&quot;入口文件说明&quot;&gt;&lt;a href=&quot;#入口文件说明&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="javascript基础" scheme="http://guozhitao.top/tags/javascript%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue响应式原理</title>
+    <link href="http://guozhitao.top/2022/03/02/vue-xiang-ying-shi-yuan-li/"/>
+    <id>http://guozhitao.top/2022/03/02/vue-xiang-ying-shi-yuan-li/</id>
+    <published>2022-03-02T14:28:35.000Z</published>
+    <updated>2022-03-02T14:31:29.250Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;VUE-响应式原理&quot;&gt;&lt;a href=&quot;#VUE-响应式原理&quot; class=&quot;headerlink&quot; title=&quot;VUE 响应式原理&quot;&gt;&lt;/a&gt;VUE 响应式原理&lt;/h1&gt;&lt;h2 id=&quot;核心：proxy、effact&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="javascript基础" scheme="http://guozhitao.top/tags/javascript%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ref,computed</title>
+    <link href="http://guozhitao.top/2022/03/02/ref-computed/"/>
+    <id>http://guozhitao.top/2022/03/02/ref-computed/</id>
+    <published>2022-03-02T14:27:44.000Z</published>
+    <updated>2022-03-02T14:31:21.777Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;ref-函数&quot;&gt;&lt;a href=&quot;#ref-函数&quot; class=&quot;headerlink&quot; title=&quot;ref 函数&quot;&gt;&lt;/a&gt;ref 函数&lt;/h2&gt;&lt;p&gt;原理：&lt;code&gt;ref&lt;/code&gt;使用的时候都是使用&lt;code&gt;.value&lt;/code&gt; 。</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="javascript基础" scheme="http://guozhitao.top/tags/javascript%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript设计模式</title>
+    <link href="http://guozhitao.top/2022/03/02/javascript-she-ji-mo-shi/"/>
+    <id>http://guozhitao.top/2022/03/02/javascript-she-ji-mo-shi/</id>
+    <published>2022-03-02T14:26:48.000Z</published>
+    <updated>2022-03-02T14:30:36.182Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;javascript-设计模式&quot;&gt;&lt;a href=&quot;#javascript-设计模式&quot; class=&quot;headerlink&quot; title=&quot;javascript 设计模式&quot;&gt;&lt;/a&gt;javascript 设计模式&lt;/h1&gt;&lt;h2 id=&quot;工厂模式&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="javascript基础" scheme="http://guozhitao.top/tags/javascript%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从输入URL到页面展示发生了什么</title>
+    <link href="http://guozhitao.top/2022/03/02/cong-shu-ru-url-dao-ye-mian-zhan-shi-fa-sheng-liao-shi-me/"/>
+    <id>http://guozhitao.top/2022/03/02/cong-shu-ru-url-dao-ye-mian-zhan-shi-fa-sheng-liao-shi-me/</id>
+    <published>2022-03-02T14:25:04.000Z</published>
+    <updated>2022-03-02T14:31:42.967Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;从输入URL到页面展示，这中间发生了什么？-导航-amp-渲染&quot;&gt;&lt;a href=&quot;#从输入URL到页面展示，这中间发生了什么？-导航-amp-渲染&quot; class=&quot;headerlink&quot; title=&quot;从输入URL到页面展示，这中间发生了什么？-</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="javascript基础" scheme="http://guozhitao.top/tags/javascript%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>执行机制</title>
+    <link href="http://guozhitao.top/2022/03/02/javascript-zhi-xing-ji-zhi/"/>
+    <id>http://guozhitao.top/2022/03/02/javascript-zhi-xing-ji-zhi/</id>
+    <published>2022-03-02T14:22:34.000Z</published>
+    <updated>2022-03-02T14:30:08.920Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;JavaScript-执行机制&quot;&gt;&lt;a href=&quot;#JavaScript-执行机制&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 执行机制&quot;&gt;&lt;/a&gt;JavaScript 执行机制&lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="javascript基础" scheme="http://guozhitao.top/tags/javascript%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器架构</title>
+    <link href="http://guozhitao.top/2021/12/24/liu-lan-qi-jia-gou/"/>
+    <id>http://guozhitao.top/2021/12/24/liu-lan-qi-jia-gou/</id>
+    <published>2021-12-24T08:37:02.000Z</published>
+    <updated>2022-03-02T14:31:58.382Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Chrome架构： 仅仅打开了一个页面，为什么有四个进程？&lt;/p&gt;
+&lt;p&gt;进程和线程&lt;/p&gt;
+&lt;p&gt;线程：&lt;br&gt;●  线程是最小的执行单元。&lt;br&gt;●  线程是不能单独存在的，它是由进程来启动和管理的&lt;/p&gt;
+&lt;p&gt;进程：&lt;br&gt;●</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://guozhitao.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="javascript基础" scheme="http://guozhitao.top/tags/javascript%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>兄弟连Linux笔记</title>

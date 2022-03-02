@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="js事件|事件冒泡|事件捕获">
+    <meta name="keywords" content="浏览器">
     <meta name="description" content="郭治涛的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>事件 | 郭治涛</title>
+    <title>浏览器架构 | 郭治涛</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">事件</h1>
+                    <h1 class="description center-align post-title">浏览器架构</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/js%E4%BA%8B%E4%BB%B6/">
-                                <span class="chip bg-color">js事件</span>
+                            <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">javascript基础</span>
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-14
+                    2021-12-24
                 </div>
                 
 
@@ -475,212 +475,32 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>当浏览器发展到第四代的时候，浏览器开发团队遇到了一个问题：页面的哪一部分会拥有某个特定的事件？一组同心圆，手指指向圆心，手指指向的 不是一个圆，而是纸上的所有圆。如果你单击了某个按钮，他们都认为单机事件不仅仅发生在按钮上。换句话说，在单机按钮的同时，你也单击了按钮的容器元素，甚至单击了整个页面。</p>
-<p><strong>事件流</strong> 描述的就是从页面中接收事件的顺序。</p>
-<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p> IE的事件流叫做事件冒泡， 即事件开始时由最具体的元素（文档中嵌套层次最深的那个节点）接收，然后逐级向上传播到较为不具体的节点（文档）。</p>
-<h3 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h3><p>事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该是最后接收到事件。事件捕获的用意在于在事件到达预定目标之前捕获它。</p>
-<h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><p>“DOM2级事件流”规定的事件流包括三个阶段： </p>
+                <p>Chrome架构： 仅仅打开了一个页面，为什么有四个进程？</p>
+<p>进程和线程</p>
+<p>线程：<br>●  线程是最小的执行单元。<br>●  线程是不能单独存在的，它是由进程来启动和管理的</p>
+<p>进程：<br>● 一个进程就是一个程序的运行实例。启动一个程序的时候，操作系统会为该程序创建一块内存，用来存放代码、运行中的数据和一个执行任务的主线程，这样的运行环境叫进程。</p>
+<p>线程是依附于进程的，而进程中使用多线程并行处理能提升运算速率。</p>
+<p>进程和线程之间的关系特点：</p>
 <ol>
-<li>事件捕获阶段：为截获事件提供了机会。</li>
-<li>处于目标阶段：实际的目标接收到事件。</li>
-<li>事件冒泡阶段：在这个阶段对事件做出响应。   </li>
+<li> 进程中的任一线程执行出错，都会导致整个进程崩溃。</li>
+<li>线程之间共享进程中的数据。<br> 线程之间可以对进程的公共数据进行读写操作。</li>
+<li>当一个进程关闭之后，操作系统会回首进程所占用的内存。<br> 当一个进程退出时，操作系统会回收改进程所申请的所有资源；即使其中任一线程因为操作不当导致内存泄漏，当进程退出时，这些内存也会被正确回收。</li>
+<li>进程之间的内容相互隔离。<br> 进程隔离是为保护操作系统中进程互不干扰的技术，每一个进程只能访问自己占有的数据，也就避免出现进程A写入数据到进程B的情况。正是因为进程之间的数据是杨哥隔离的，所以一个进程如果崩溃了，或者挂起了，是不会影响到其他进程的。如果进程之间需要进行数据的通信，这时候，就需要使用用于进程间通信（IPC）的机制了。<br> 单进程浏览器架构<br> 单进程浏览器是指浏览器的所有功能模块都是运行在哟个进程里，这些模块包含了网络、插件、JavaScript运行环境、渲染引擎、和页面等。</li>
 </ol>
-<h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><p>事件就是用户或浏览器自身执行的某种动作。诸如 click、load和mouseover ，都是事件名字。而响应某个事件的函数就叫做事件处理程序（或事件侦听器）</p>
-<h3 id="HTML事件处理程序"><a href="#HTML事件处理程序" class="headerlink" title="HTML事件处理程序"></a>HTML事件处理程序</h3><p>某个元素咫尺的每种事件，都可以使用一个与相应事件处理程序同名的HTML特性来指定。这个特性的值应该是能够执行JavaScript代码。</p>
-<p>事件处理程序中的代码在执行的时候，有权访问全局作用域中的任何代码。这样会创建一个封装着元素属性值的函数，这个函数中有一个局部变量event,也就是事件对象。</p>
-<p>通过event变量，可以直接访问事件对象，你不用自己定义它，也不用从函数的参数列表中国读取。在这个函数内部，this值等于事件的目标元素。</p>
-<h4 id="HTML-事件指定处理程序的缺点"><a href="#HTML-事件指定处理程序的缺点" class="headerlink" title="HTML 事件指定处理程序的缺点"></a>HTML 事件指定处理程序的缺点</h4><ol>
-<li>时差问题，当html刚好渲染完成，js还没有解析的时候，用户触发了某个事件，可能没有执行的处理程序还没加载完成，此时就会报错。</li>
-<li>扩展事件处理程序的作用域链在不同的浏览器中会导致不同的结果，很可能会在访问非限定对象成员时出错。</li>
-<li>HTML 与JavaScript 代码紧密耦合。</li>
-</ol>
-<h3 id="DOM0级事件处理程序"><a href="#DOM0级事件处理程序" class="headerlink" title="DOM0级事件处理程序"></a>DOM0级事件处理程序</h3><p>  通过javaScript 指定事件处理程序的传统方式，就是将一个函数赋值给一个事件处理程序属性。这种为事件处理程序的方法是在第四代 web浏览器中出现。这种方式现在也还支持，原因一是简单，二是具有跨浏览器的优势。==要使用JavaScript指定事件处理程序，首先必须取得一个要操作的对象的引用。== </p>
-<h3 id="DOM2级事件处理程序"><a href="#DOM2级事件处理程序" class="headerlink" title="DOM2级事件处理程序"></a>DOM2级事件处理程序</h3><p>  “DOM2级事件”定义了两个方法，用于处理指定和删除事件处理程序的操作：addEvenListener() 和removeEventListener()。所有DOM节点中都包含这两个方法，并且他们都接受3个参数：要处理的事件名、作为事件处理的函数和一个布尔值。最后这个布尔值参数如果是true，表示在捕获阶段调用事件处理程序；如果是false,表示在冒泡阶段调用事件处理程序。</p>
-<p>  使用DOM2级方法添加事件处理程序的主要好处是可以添加多个事件处理程序。这些事件会按照添加他们的顺序来触发。</p>
-<p>  通过addEventListener() 添加的事件处理程序智能使用removeEventListener()来移除；移除时传入的参数与添加处理程序时使用的参数相同。这意味v着通过addEventListener() 添加的匿名函数将无法移除。</p>
-<p>  ==大多数情况下，都是将事件处理程序添加到事件流的冒泡阶段，这样可以最大限度地兼容各种浏览器。最好只在需要在事件到达目标之前截获它的时候将事件处理程序添加到捕获阶段。不建议在事件捕获阶段注册事件处理程序==</p>
-<h3 id="IE-事件处理程序"><a href="#IE-事件处理程序" class="headerlink" title="IE 事件处理程序"></a>IE 事件处理程序</h3><p>IE实现了与DOM 中类似的两个方法：attachEvent() 和detachEvent()。这两个方法接受相同的两个参数：事件处理程序名称与事件处理程序函数。<br>由于IE8以及更早版本只支持事件冒泡，所以通过attachEvent() 添加的事件处理程序都会被添加到冒泡阶段。==<strong>注意：</strong>attachEvent()的第一个参数是onclick，而非DOM的addEventListener()方法中的click。==</p>
-<p>在IE中使用attachEvent() 与使用DMO0级方法的主要区别在于事件处理程序的作用域。在使用DOM0级方法情况下，事件处理程序会在其所属元素作用域内运行；在使用attacheEvent()方法的情况下，事件处理程序会在全局作用域中运行，因此 this === window.</p>
-<h3 id="跨浏览器的事件处理程序"><a href="#跨浏览器的事件处理程序" class="headerlink" title="跨浏览器的事件处理程序"></a>跨浏览器的事件处理程序</h3><p>为了浏览器的方式处理事件，不少开发人员会使用能够i有隔离浏览器差异的JavaScript库，还有一些开发人员会自己开发最合适的事件处理的方法。要保证处理事件的代码能在大多数浏览器下一直地运行，只需要关注冒泡阶段。</p>
-<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p> 在触发DOM上的某个事件时，会产生一个事件对象event, 这个对象中包含着所有与事件有关的信息。包括导致事件的元素、事件的类型以及其他特定事件相关的信息。</p>
-<h3 id="DOM中的事件对象"><a href="#DOM中的事件对象" class="headerlink" title="DOM中的事件对象"></a>DOM中的事件对象</h3><p> 兼容DOM的的浏览器会将一个event 对象传入事件处理程序中。无论指定事件处理程序时使用什么方法（DOM0级或DOM2级），都会传入event对象。</p>
-<p> event 对象包含与创建它的特定事件有关的属性和方法。触发的事件类型不一样，可用的属性和方法也不一样。不过所有的事件都会有下表列出的成员</p>
-<table>
-<thead>
-<tr>
-<th>属性/方法</th>
-<th>类型</th>
-<th>读/写</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bubbles</td>
-<td>Boolean</td>
-<td>只读</td>
-<td>表明事件是否冒泡</td>
-</tr>
-<tr>
-<td>cancelable</td>
-<td>Boolean</td>
-<td>只读</td>
-<td>表明是否可以取消事件的默认行为</td>
-</tr>
-<tr>
-<td>currentTarget</td>
-<td>Element</td>
-<td>只读</td>
-<td>其事件处理程序当前正在处理事件的那个元素</td>
-</tr>
-<tr>
-<td>defaultPrevented</td>
-<td>Boolean</td>
-<td>只读</td>
-<td>为true表示已经调用了preventDefault()(DOM3级事件中新增)</td>
-</tr>
-<tr>
-<td>detail</td>
-<td>Integer</td>
-<td>只读</td>
-<td>与事件相关的细节信息</td>
-</tr>
-<tr>
-<td>eventPhase</td>
-<td>Integer</td>
-<td>只读</td>
-<td>调用事件处理程序的阶段：1表示捕获阶段；2表示“处于目标”；3表示冒泡阶段</td>
-</tr>
-<tr>
-<td>preventDefault()</td>
-<td>Function</td>
-<td>只读</td>
-<td>取消事件的默认行为。如果cancelable是true，则可以使用这个方法</td>
-</tr>
-<tr>
-<td>stopImmediatePropagation()</td>
-<td>Function</td>
-<td>只读</td>
-<td>取消事件的进一步捕获或冒泡，同时阻止任何事件处理程序被调用（DOM3级事件中新增）</td>
-</tr>
-<tr>
-<td>stopPropagation()</td>
-<td>Function</td>
-<td>只读</td>
-<td>取消事件的进一步捕获或冒泡。如果bubbles为true，则可以使用这个方法</td>
-</tr>
-<tr>
-<td>target</td>
-<td>Element</td>
-<td>只读</td>
-<td>事件的目标</td>
-</tr>
-<tr>
-<td>trusted</td>
-<td>Boolean</td>
-<td>只读</td>
-<td>为true表示事件是浏览器生成的。为false表示事件由开发人员通过JavaScript创建的（DOM3级事件中新增）</td>
-</tr>
-<tr>
-<td>type</td>
-<td>String</td>
-<td>只读</td>
-<td>被触发的事件的类型</td>
-</tr>
-<tr>
-<td>view</td>
-<td>Abstraction</td>
-<td>只读</td>
-<td>与时间关联的抽象视图。等同于发生事件的window对象</td>
-</tr>
-</tbody></table>
-<p><strong>注意</strong></p>
-<ol>
-<li>在事件处理程序内部，对象this始终等于 currentTarget的值，而target则只包含事件的实际目标。</li>
-<li>在需要通过一个函数处理多个事件的时候 可以使用 <code>event.type</code> 判断是何种类型。</li>
-<li>要阻止特定事件的默认行为，可以使用preventDefault()方法。只有cancelable属性设置为true的事件才能使用。</li>
-<li>stopPropagation()　方法用于立即停止事件在DOM层次中的传播，即取消进一步的事件捕获或冒泡。</li>
-<li>事件对象的eventPhase属性，可以用来确定事件流的哪个阶段。</li>
-<li>只有在事件处理程序执行期间，event对象才会存在；一旦事件处理程序执行完成，event对象就会被销毁。 <h3 id="IE中的事件对象"><a href="#IE中的事件对象" class="headerlink" title="IE中的事件对象"></a>IE中的事件对象</h3>与访问DOM的event对象不同，要访问IE中的event对象有几种不同的方式，取决于指定事件处理程序的发方法，在使用DOM0级方法添加事件处理程序时，event对象作为window对象的一个属性存在</li>
-</ol>
-<p>IE的event对象同样也包含与创建它的事件相关的属性和方法。其中很多属性和方法都有对应的或者相关的DOM属性和方法。与DOM的event 对象一样，这些属性和方法也会因为事件类型不同而不同，但所有事件对象都会包含下表的属性和方法。</p>
-<table>
-<thead>
-<tr>
-<th>属性/方法</th>
-<th>类型</th>
-<th>读/写</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>cancelable</td>
-<td>Boolean</td>
-<td>只读</td>
-<td>表明是否可以取消事件的默认行为</td>
-</tr>
-<tr>
-<td>returnValue</td>
-<td>Boolean</td>
-<td>只读</td>
-<td>默认值为true，但将其设置为false就可以取消事件的默认行为（与DOM中的preventDefault()方法的作用相同）</td>
-</tr>
-<tr>
-<td>srcElement</td>
-<td>Element</td>
-<td>只读</td>
-<td>事件的目标（与DOM中的target属性相同）</td>
-</tr>
-<tr>
-<td>type</td>
-<td>String</td>
-<td>只读</td>
-<td>被触发的事件的类型</td>
-</tr>
-</tbody></table>
-<p><strong>注意</strong></p>
-<ol>
-<li><p>因为事件处理程序的作用域 是根据指定它的方式来确定的，所以不能认为this会始终等于事件目标。</p>
-</li>
-<li><p>returnValue属性相当于DOM中的preventDefault() 方法，他们的作用都是取消给定事件的默认行为。只要将returnValue设置为false，就可以阻止默认行为。</p>
-</li>
-<li><p>cancelBubble 属性与DOM中的stopPropagation()方法作用相同，都是用来停止事件冒泡的。由于IE不支持事件捕获，因而只能取消事件冒泡；但stopPropagation() 可以同时取消事件冒泡和捕获。</p>
-<h3 id="跨浏览器的事件对象"><a href="#跨浏览器的事件对象" class="headerlink" title="跨浏览器的事件对象"></a>跨浏览器的事件对象</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> EventUtil <span class="token operator">=</span> <span class="token punctuation">{</span>
- addHandler<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> type<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">// 省略代码</span>
- <span class="token punctuation">}</span><span class="token punctuation">,</span>
- getEvent<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token keyword">return</span> event <span class="token operator">?</span> event <span class="token punctuation">:</span> window<span class="token punctuation">.</span>event<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 拿到event对象</span>
- <span class="token punctuation">}</span><span class="token punctuation">,</span>
- getTarget<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token keyword">return</span> event<span class="token punctuation">.</span>target <span class="token operator">||</span> event<span class="token punctuation">.</span>srcElement<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 拿到target</span>
- <span class="token punctuation">}</span><span class="token punctuation">,</span>
- preventDefault<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>preventDafult<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-     event<span class="token punctuation">.</span>returnValue <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span><span class="token punctuation">,</span>
- removeHandler<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> type<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">// 省略代码</span>
- <span class="token punctuation">}</span><span class="token punctuation">,</span>
- stopPropagation<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>stopPropagation<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     event<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-     event<span class="token punctuation">.</span>cancelBubble <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span> </code></pre>
-<p><strong>getEvent()</strong>: 返回event的引用。考虑到IE中事件对象的位置不同，可以使用这个方法来取得event对象，而不必担心指定事件处理程序的方式。在使用这个方法时候，必须假设有一个事件对象传入到事件处理程序中，而且还要把该变量传给这个办法。在兼容DOM的浏览器中event变量只是简单啊的传入和返回。而在IE中，event参数是未定义的{undefined}, 因此就会返回window.event。将这一行代码添加到事件处理程序的开头，就可以确保随时都能够使用event对象，而不必担心用户使用的什么浏览器。</p>
-<p><strong>getTarget()</strong>: 返回事件的目标。在这个方法内部，会检测event对象的target属性，如果存在则返回该属性的值，否则，返回srcElement属性的值</p>
-<p><strong>preventDefault()</strong>: 用于取消事件的默认行为。在传入event对象之后，这个方法会检查是否存在preventDefault()方法，如果存在则调用该方法，不存在则将returnValue设置为false</p>
-<p><strong>stopPropagation()</strong>: 首先尝试使用DOM方法阻止事件流，否则就使用cancelBubble属性。</p>
-<blockquote>
-<p>摘自：《JavaScript高级程序设计》</p>
-</blockquote>
-</li>
-</ol>
+<p>单进程架构问题：不稳定、不流畅、不安全</p>
+<p>问题1: 不稳定<br>早期浏览器需要借助于插件来实现诸如Web视频、Web游戏等各种强大的功能，但是插件是最容易出问题的模块，并且还运行在浏览器进程中，所以一个插件的意外崩溃会引起整个浏览器的崩溃。<br>除了插件之外，渲染引擎模块也是不稳定的，通常一些复杂的JavaSctipt代码就有肯呢个引起渲染引擎模块的崩溃。和插件一样，渲染引擎的崩溃也会导致整个浏览器的崩溃。</p>
+<p>问题2: 不流畅<br>从“单进程浏览器架构示意图”可以看出，所有页面的渲染模块、JavaScript执行环境以及插件都是运行在同一个线程中，这就意味着同一时刻只能有一个模块可以执行。<br>除了脚本或者插件会让单进程浏览器变卡顿外，页面的内存泄漏也是单进程变慢的一个重要原因。通常浏览器的内核都是非常复杂的，运行一个复杂点的页面再关闭页面，会存在内存不能完全回收的情况，这样导致的问题是使用时间越长，内存占用越高，浏览器会变慢。</p>
+<p>问题3：不安全<br>通过插件可以获取到操作系统的任意资源，如果是个恶意插件，那么它就可以释放病毒、窃取你的账号密码，引发安全问题。</p>
+<p>多进程浏览器时代</p>
+<p>早期的多进程架构：</p>
+<p>从上图可见，Chrome的页面是运行在单独的渲染进程中的，同时页面里的插件也是运行在单独的插件进程中，而进程之间是通过IPC 机制进行通信（如图中虚线部分）。</p>
+<p>如何解决不稳定的问题。 由于进程是互相隔离的，所以当一个页面或者插件崩溃时，影响到的仅仅是当前的页面进程或者插件进程，不会影响到浏览器和其他页面。</p>
+<p>如何解决运行不流畅的问题。 javaScript也是运行在渲染进程中的，所以即使JavaScript阻塞了渲染进程，影响到的也只是当前的渲染页面，而不会影响到浏览器和其他页面，因为其他页面的脚本是运行在他们自己的渲染进程中的。<br>对于内存泄漏的解决方案：因为当关闭一个页面时，整个渲染进程也会被关闭，之后该进程所占用的内存都会被系统回收，这样就轻松解决了浏览器页面的内存泄漏的问题。</p>
+<p>如何解决安全问题。多进程的架构可以使用安全沙箱，Chorme把插件进程和渲染进程锁在沙箱里，这样即使在渲染进程或者插件进程执行了恶意程序，恶意程序也无法突破沙箱获取系统权限。</p>
+<p>目前的多进程架构<br>从图中可以看出目前的Chrome浏览器包括：一个浏览器（Brower）主进程，一个GPU进程，一个网络进程，多个渲染进程和多个插件进程。<br>● 浏览器进程：主要负责页面显示，用户交互子进程管理，同时提供存储等功能。<br>● 渲染进程： 核心任务是将HTML、CSS和JavaScript转换为用户可以与之交互的网页。排版引擎Blink和JavaScript引擎都运行在该进程中，默认情况下Chrome会为每个Tab标签创建一个渲染进程。渲染进程都运行在沙箱模式下。<br>● GPU进程：GPU使用的初衷是实现3D CSS效果，随后网页，Chrome的UI界面都是采用GPU来绘制，是的GPU成为浏览器的普遍需求。所以Chrome在多进程架构上引入了GPU进程。<br>● 网络进程：主要负责页面的网络资源，之前作为一个模块运行在浏览器进程中，现在独立出来成为一个单独的进程。<br>● 插件进程：主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。</p>
+<p>多进程模型提升了浏览器的稳定性、流畅性和安全性，但同样不可避免地带来了一些问题：<br>● 更高的资源占用。因为每个进程都会包含公共基础结构的副本如（JavaScript的运行环境），这意味着浏览器会消耗更多的内存资源。<br>● 更复杂的体系架构。浏览器各模块之间耦合性高、扩展性差等问题会导致现在的架构很难适应新的需求。</p>
+<p>未来面向服务的架构<br>在 2016 年，Chrome 官方团队使用“面向服务的架构”（Services Oriented Architecture，简称 SOA）的思想设计了新的 Chrome 架构。也就是说 Chrome 整体架构会朝向现代操作系统所采用的“面向服务的架构” 方向发展，原来的各种模块会被重构成独立的服务（Service），每个服务（Service）都可以在独立的进程中运行，访问服务（Service）必须使用定义好的接口，通过 IPC 来通信，从而构建一个更内聚、松耦合、易于维护和扩展的系统，更好实现 Chrome 简单、稳定、高速、安全的目标。<br>Chrome 最终要把 UI、数据库、文件、设备、网络等模块重构为基础服务，类似操作系统底层服务，下面是 Chrome“面向服务的架构”的进程模型图：</p>
+<p>同时 Chrome 还提供灵活的弹性架构，在强大性能设备上会以多进程的方式运行基础服务，但是如果在资源受限的设备上（如下图），Chrome 会将很多服务整合到一个进程中，从而节省内存占用。</p>
 
             </div>
             <hr/>
@@ -706,7 +526,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://guozhitao.top/2020/11/14/shi-jian/">http://guozhitao.top/2020/11/14/shi-jian/</a>
+                    <a href="http://guozhitao.top/2021/12/24/liu-lan-qi-jia-gou/">http://guozhitao.top/2021/12/24/liu-lan-qi-jia-gou/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -744,8 +564,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/js%E4%BA%8B%E4%BB%B6/">
-                                    <span class="chip bg-color">js事件</span>
+                                <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">javascript基础</span>
                                 </a>
                             
                         </div>
@@ -917,42 +737,32 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/29/jing-dian-san-da-pai-xu/">
+                <a href="/2022/03/02/javascript-zhi-xing-ji-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="经典三大排序">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="执行机制">
                         
-                        <span class="card-title">经典三大排序</span>
+                        <span class="card-title">执行机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            排序
-三大经典排序 | 冒泡排序，选择排序，快速排序
-
-冒泡排序直接上偷来的图
-选择排序
-快速排序
-快速排序（Quicksort）的Javascript实现
-
-代码/**
- * @file 快速排序和冒泡排序
- * @author 郭治涛
-
+                            JavaScript 执行机制[TOC]
+变量提升所谓的变量提升，是指在JavaScript代码执行过程中，javaScript引擎把变量的声明部分和函数的声明部分提升到代码开头的“行为”。变量被提升后，会给变量设置默认值undefined
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -962,8 +772,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
+                    <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">javascript基础</span>
                     </a>
                     
                 </div>
@@ -977,32 +787,42 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/09/ke-hu-duan-jiao-ben-an-quan/">
+                <a href="/2020/12/23/xiong-di-lian-linux-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="浏览器安全">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="兄弟连Linux笔记">
                         
-                        <span class="card-title">浏览器安全</span>
+                        <span class="card-title">兄弟连Linux笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浏览器安全​    前言： 随着互联网的发展，浏览器作为互联网最大的入口。浏览器天生就是一个客户端，如果具备了安全功能，就就可以像安全软件一样对用户上网起到了很好的保护作用。
-1. 同源策略​    浏览器的同源测略，限制了来自不同源的“d
+                            兄弟连Linux笔记3.1 注意
+Linux 严格区分大小写
+
+Linux中所有内容以文件形式保存，包括硬件
+
+硬盘文件是/dev/sd[a-p]
+光盘文件是/dev/sr0等
+
+
+Linux不靠扩展名区分文件类型
+
+压缩包：”.gz”、”
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/web%E5%AE%89%E5%85%A8/" class="post-category">
-                                    web安全
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -1012,8 +832,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/web%E5%AE%89%E5%85%A8-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">web安全, 浏览器安全</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>

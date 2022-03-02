@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="兄弟连Linux笔记, 郭治涛, 前端, js, VUE, Angular">
+    <meta name="keywords" content="Vue3">
     <meta name="description" content="郭治涛的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>兄弟连Linux笔记 | 郭治涛</title>
+    <title>Vue响应式原理 | 郭治涛</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">兄弟连Linux笔记</h1>
+                    <h1 class="description center-align post-title">Vue响应式原理</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">javascript基础</span>
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-23
+                    2022-03-02
                 </div>
                 
 
@@ -475,222 +475,157 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="兄弟连Linux笔记"><a href="#兄弟连Linux笔记" class="headerlink" title="兄弟连Linux笔记"></a>兄弟连Linux笔记</h1><h2 id="3-1-注意"><a href="#3-1-注意" class="headerlink" title="3.1 注意"></a>3.1 注意</h2><ul>
-<li><p>Linux 严格区分大小写</p>
-</li>
-<li><p>Linux中所有内容以文件形式保存，包括硬件</p>
-<ul>
-<li>硬盘文件是/dev/sd[a-p]</li>
-<li>光盘文件是/dev/sr0等</li>
-</ul>
-</li>
-<li><p>Linux不靠扩展名区分文件类型</p>
-<ul>
-<li>压缩包：”<em>.gz”、”</em>.bz2” “<em>.tar.bz2”、”</em>.tgz”等</li>
-<li>二进制软件包： “.rpm”</li>
-<li>网页文件：”<em>.html”、”</em>.php”</li>
-<li>脚本文件：”*.sh” </li>
-<li>配置问价：”*.conf”</li>
-</ul>
-</li>
-<li><p>Linux所有的存储设备都必须挂载之后用户才能是哦那个，包括硬盘、U盘和光盘</p>
-</li>
-<li><p>Windows下的程序不能直接在Linux中安装和运行</p>
-</li>
-</ul>
-<h2 id="3-2-服务器管理和维护建议"><a href="#3-2-服务器管理和维护建议" class="headerlink" title="3.2 服务器管理和维护建议"></a>3.2 服务器管理和维护建议</h2><h3 id="1-目录及作用"><a href="#1-目录及作用" class="headerlink" title="1. 目录及作用"></a>1. 目录及作用</h3><table>
-<thead>
-<tr>
-<th>目录名</th>
-<th>目录作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>/bin/</td>
-<td>存放系统命令的目录，普通用户和超级用户都可以执行。不过放在/bin下的命令在单用户模式下也可以执行</td>
-</tr>
-<tr>
-<td>/sbin/</td>
-<td>保存和系统环境设置相关的命令，只有超级用户可以使用这些命令进行系统环境设置，但是有些命令可以允许普通用户查看</td>
-</tr>
-<tr>
-<td>/usr/bin</td>
-<td>存放系统命令的目录，普通用户和超级用户都可以执行，这些命令和系统执行无关，在单用户模式下不能执行</td>
-</tr>
-<tr>
-<td>/usr/sbin/</td>
-<td>存放根文件系统不必要的系统管理命令，例如多数服务程序。只有超级用户可以使用。大家其实可以注意到Linux的系统，在所有”sbin“目录中保存的命令只有超级用户可以使用，”bin”目录中保存的命令所有用户都能使用</td>
-</tr>
-<tr>
-<td>/boot/</td>
-<td>系统启动目录，保存系统启动相关文件，如内核文件和启动引导程序（grub）文件等</td>
-</tr>
-<tr>
-<td>/dev/</td>
-<td>设备文件保存位置，我们已将说过Linux中的所有内容以文件的形式保存，包括硬件，那么这个目录就是用来保存所有硬件设备文件的</td>
-</tr>
-<tr>
-<td>/etc/</td>
-<td>配置文件保存位置，系统内所有采用默认安装方式（rpm安装）的服务的配置文件全部都保存在这个目录当中，如用户的账户和密码，服务的启动脚本，常用服务的配置文件</td>
-</tr>
-<tr>
-<td>/home/</td>
-<td>普通用户的家目录。建立每个用户时，每个用户要有一个默认登陆位置，这个位置就是这个用户的家目录，所有普通用户的家目录就是在/home下建立一个和用户名相同的目录。如果user1的家目录就是/home/user1</td>
-</tr>
-<tr>
-<td>/lib/</td>
-<td>系统调用函数的库保存位置</td>
-</tr>
-<tr>
-<td>/lost+found/</td>
-<td>当系统意外崩溃或及其意外关机，而产生一些文件碎片放在这里。当系统启动的过程中fsck（file system check）工具会检查这里，并修复已经损坏的文件系统。这个目录只在每个分区中出现，例如/lost+found就是根分区的备份恢复目录，/boot/lost+found/就是/boot分区的备份恢复目录</td>
-</tr>
-<tr>
-<td>/media/</td>
-<td>挂载目录。系统建议是用来挂载媒体设备的，例如软盘和光盘</td>
-</tr>
-<tr>
-<td>/mnt/</td>
-<td>挂载目录。早期Linux中只有这一个挂载目录，并没有细分。现在这个目录系统建议挂载额外设备，如U盘，移动硬盘和其他操作系统分区</td>
-</tr>
-<tr>
-<td>/misc/</td>
-<td>挂载目录。系统建议用来挂载NFS服务的共享目录。只要是一个已经建立的空目录就可以作为挂载点。虽然操作系统准备了三个默认的挂载目录/media、/mnt/、/misc，但是到底在哪个目录中挂载什么设备都可以由管理员自己决定。</td>
-</tr>
-<tr>
-<td>/opt/</td>
-<td>第三方安装的软件保存的位置。这个目录就是放置和安装其他软件的位置，手工安装的源码包软件都可以安装到这个目录中。不过我更习惯把软件放置到/usr/local/目录中，也就是说/usr/local/目录也可以用来安装软件。</td>
-</tr>
-<tr>
-<td>/proc/</td>
-<td>虚拟文件系统，该目录中的数据并不保存到硬盘当中，而是保存内存当中。主要保存系统的内核，进程，外部设备状态和网络状态灯。如/proc/cpuInfo是保存CPU信息的，/proc/devices是保存设备去顶的列表的，/proc/filesystems是保存文件系统列表的，/proc/net/是保存网络协议的。</td>
-</tr>
-<tr>
-<td>/sys/</td>
-<td>虚拟文件系统。和/proc目录相似，都是保存在内存当中的，主要保存于内核相关信息的</td>
-</tr>
-<tr>
-<td>/root/</td>
-<td>超级用户的家目录。普通用户家目录在”/home“下，超级用户家目录直接在”/“下。</td>
-</tr>
-<tr>
-<td>/srv/</td>
-<td>服务数据目录。一些系统服务启动之后，可以在这个目录中保存所需要的数据</td>
-</tr>
-<tr>
-<td>/tmp/</td>
-<td>临时目录。系统存放临时文件的目录，该目录下所有用户都可以访问和写入。我们建议此目录中不能保存重要数据，最好每次开机都把该目录清空</td>
-</tr>
-<tr>
-<td>/usr/</td>
-<td>系统软件资源目录。注意usr 不是user的缩写，而是”Unix software Resource“的缩写，所以不是存放用户数据，而是存放系统软件资源的目录。系统中安装的软件大多数保存在这里，所以除了/usr/bin/和/usr/sbin/这两个目录，再介绍几个/usr/下的二级目录</td>
-</tr>
-<tr>
-<td>/var/</td>
-<td>动态数据保存位置。主要保存缓存、日志以及软件运行所产生的文件</td>
-</tr>
-</tbody></table>
-<h3 id="2-服务器注意事项"><a href="#2-服务器注意事项" class="headerlink" title="2. 服务器注意事项"></a>2. 服务器注意事项</h3><ul>
-<li>远程服务器不允许关机，只能重启</li>
-<li>重启之前应该关闭服务</li>
-<li>不要在服务器访问高峰运行高负载命令（大文件扫描、大文件压缩复制等）</li>
-<li>远程配置防火墙时候不要把自己提出服务器</li>
-<li>指定合理的密码规范并定期更新</li>
-<li>合理分配权限</li>
-<li>定期备份重要数据和日志</li>
-</ul>
-<h2 id="4-Linux-常用命令"><a href="#4-Linux-常用命令" class="headerlink" title="4. Linux 常用命令"></a>4. Linux 常用命令</h2><h3 id="4-1-文件处理命令"><a href="#4-1-文件处理命令" class="headerlink" title="4.1 文件处理命令"></a>4.1 文件处理命令</h3><h4 id="4-1-1-命令格式与目录处理命令ls"><a href="#4-1-1-命令格式与目录处理命令ls" class="headerlink" title="4.1.1 命令格式与目录处理命令ls"></a>4.1.1 命令格式与目录处理命令ls</h4><p>命令格式： 命令 [-选项] [参数]</p>
-<p>​    例： ls -la /etc</p>
-<p>说明： </p>
+                <h1 id="VUE-响应式原理"><a href="#VUE-响应式原理" class="headerlink" title="VUE 响应式原理"></a>VUE 响应式原理</h1><h2 id="核心：proxy、effact"><a href="#核心：proxy、effact" class="headerlink" title="核心：proxy、effact"></a>核心：proxy、effact</h2><h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// proxy 浅层代理</span>
+<span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">get</span> <span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`proxy -- target: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> property: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>property<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">  get: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> res
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">set</span> <span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> value<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> value<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`proxy target: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> value: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> property: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>property<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -- set: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> res
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  b<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    c<span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> objProxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span>handler<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> arrProxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> handler<span class="token punctuation">)</span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 使用递归深层代理vue</span>
+<span class="token keyword">function</span> <span class="token function">isObject</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">typeof</span> val <span class="token operator">===</span> <span class="token string">"object"</span> <span class="token operator">&amp;&amp;</span> val <span class="token operator">!==</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> myProxy <span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+  <span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">get</span> <span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> res <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`proxy -- target: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> property: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>property<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">  get: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true">// 判断获取的值是否是对象，如果是对象也要让它的get 和 set 也被拦截</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">myProxy</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> res
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">set</span> <span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> value<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> res <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> value<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`proxy target: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> value: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> property: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>property<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -- set: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span> res
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>handler<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="effect（观察者）"><a href="#effect（观察者）" class="headerlink" title="effect（观察者）"></a>effect（观察者）</h3><p>作用：</p>
 <ol>
-<li><p>个别命令使用不遵循此格式</p>
-</li>
-<li><p>当有多个选项时，可以写在一起</p>
-</li>
-<li><p>简化选项与完场选项 -a 等于 –all</p>
+<li>生成依赖的标志-通过全局变量和回调函数的方式获取需要保存的依赖<ul>
+<li>将回调函数保存到全局变量中，当触发响应式数据的get 方法的时候和 将该回调保存到 <strong>依赖集合</strong></li>
+<li>使用回调函数的方式目的时候方便，响应式数据更改触发set方法时，将依赖集合中的 方法重新触发一遍 使数据更新。</li>
+</ul>
 </li>
 </ol>
-<p><strong>ls</strong></p>
-<pre class=" language-shell"><code class="language-shell">ls // 显示目录
-ls -a // 查看所有文件，可看到隐藏文件，为了告诉用户不可轻易操纵 .开头的就是隐藏文件
-ls -l // 长格式显示 
-    -rw-------. 1 root root  1208 12月 23 08:33 anaconda-ks.cfg
-    文件权限 引用次数 文件所有者 文件所属组 文件的大小（默认字节） 最后一次修改时间 文件名
-    -rw-r--r--
-    -: 文件 d: 目录 l: 软连接
-    r: 读 w: 写 x: 执行
-    rw- r-- r--
-    u所有者 g所属组 o其他人
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">effect</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// effect 通过队列管理</span>
+    <span class="token keyword">const</span> effectFn <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            activeEffect <span class="token operator">=</span> effectFn
+            <span class="token comment" spellcheck="true">// fn 执行的时候，内部读取响应式数据的时候，就能在get配置里读取到activeEffect</span>
+            <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            activeEffect <span class="token operator">=</span> <span class="token keyword">null</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 立即调用更新（实际会有调度控制）</span>
+    <span class="token function">effectFn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>使用一个单元测试示例说明：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 生成proxy代理过的数据-响应式数据</span>
+<span class="token keyword">function</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 副作用函数，触发更新</span>
+<span class="token keyword">function</span> <span class="token function">effect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> 
+<span class="token comment" spellcheck="true">// 测试</span>
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'测试响应式'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'reactive基本使用'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> ret <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> num<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> val
+        <span class="token function">effect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            val <span class="token operator">=</span> ret<span class="token punctuation">.</span>num
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token function">expect</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        ret<span class="token punctuation">.</span>num<span class="token operator">++</span>
+        <span class="token function">expect</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        ret<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">10</span>
+        <span class="token function">expect</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>以上代码执行步骤</p>
+<pre><code>1. 创建对象的响应式数据`ret`。
+ 2. 调用effect 函数传入回调函数，此时内部使用了`ret` 会触发`reactive` 函数中 `get` 收集依赖。
+ 3. 收集的依赖 类似`{dep: () =&gt; {val = ret.num}}`（简单举个例子，实际并非这样）。
+ 4. 当执行`ret.num++` 时候 触发 `set`方法， `ret.num =ret.num + 1 ` 触发依赖集合中的方法。
+ 5. 此时 `dep` 方法被调用, `val = ret.num` 又执行一次， `val`的值就变成了 + 1 的值。
+ 6. `ret.num = 10` 同理</code></pre>
+<h2 id="依赖收集-怎么存依赖、怎么收集"><a href="#依赖收集-怎么存依赖、怎么收集" class="headerlink" title="依赖收集 - 怎么存依赖、怎么收集"></a>依赖收集 - 怎么存依赖、怎么收集</h2><h3 id="怎么存依赖"><a href="#怎么存依赖" class="headerlink" title="怎么存依赖"></a>怎么存依赖</h3><ol>
+<li>全局保存一个<code>weakMap</code>。</li>
+<li>将响应式数据对象作为 <code>weakMap</code>的键，一个<code>Map</code> 作为值。</li>
+<li>在<code>Map</code> 中，将响应式数据对象的 属性（property） 作为键， <code>Set</code> 作为值。</li>
+<li>当某一个响应式数据被使用的时候，将<code>effect</code> 中的回调函数通过全局变量获取到之后 保存到 <code>Set</code> 之中。</li>
+</ol>
+<h3 id="怎么收集依赖"><a href="#怎么收集依赖" class="headerlink" title="怎么收集依赖"></a>怎么收集依赖</h3><p>在proxy 中的get方法被触发的时候调用<code>track</code> 方法。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> activeEffect <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token keyword">const</span> targetMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-ls -ld /etc d: 显示目录本身，而不显示目录下的数据
-
-ls -i i: 文件的i节点
-</code></pre>
-<h4 id="4-1-2-目录处理命令"><a href="#4-1-2-目录处理命令" class="headerlink" title="4.1.2 目录处理命令"></a>4.1.2 目录处理命令</h4><p><strong>mkdir</strong></p>
-<pre class=" language-shell"><code class="language-shell">mkdir /tmp/xiaodianying
-mkdir /tmp/japan/boduo // 无法创建需要加参数 -p
-mkdir -p /tmp/japan/boduo // 递归创建
-mkdir /tmp/japan/cangjin /temp/japan/longze/  // 同时创建多个目录</code></pre>
-<p><strong>cd</strong>(change directory)</p>
-<pre class=" language-sh"><code class="language-sh">cd 目录名称
-</code></pre>
-<p><strong>pwd</strong>(print working directory)</p>
-<pre class=" language-shell"><code class="language-shell">pwd // 显示完整目录</code></pre>
-<p><strong>.</strong> 表示当前目录</p>
-<p><strong>..</strong> 表示当前目录的上级目录</p>
-<p><strong>rmdir</strong> (remove empty directory) 删除空目录</p>
-<pre class=" language-shell"><code class="language-shell">rmdir 目录名</code></pre>
-<p><strong>cp</strong> (copy) 复制</p>
-<pre class=" language-shell"><code class="language-shell">cp -rp [原文件或目录] [原文件目录] ... [目标目录]
-   -r 复制目录 可以更改文件名
-   -p 保留文件属性</code></pre>
-<p><strong>mv</strong>(move) 剪切、改名</p>
-<pre class=" language-shell"><code class="language-shell">mv [原文件或目录] [目标目录]</code></pre>
-<p><strong>rm</strong>(remove) 删除文件或目录</p>
-<pre class=" language-shell"><code class="language-shell">rm -rf [文件或目录]
-   -r 删除目录
-   -f 强制删除</code></pre>
-<h4 id="4-1-3-文件处理命令"><a href="#4-1-3-文件处理命令" class="headerlink" title="4.1.3 文件处理命令"></a>4.1.3 文件处理命令</h4><p><strong>touch</strong> 创建空文件</p>
-<pre class=" language-shell"><code class="language-shell">touch [文件名]</code></pre>
-<p><strong>cat</strong>显示文件内容</p>
-<pre class=" language-shell"><code class="language-shell">cat [文件名]
-cat -n [文件名] // 查看文件内容 带行号
-cat </code></pre>
-<p><strong>tac</strong> 与cat一直  反向显示命令 不支持-n</p>
-<p><strong>more</strong> 分页显示文件内容</p>
-<pre class=" language-shell"><code class="language-shell">more [文件名]
-（空格）或f  翻页
-（enter）   换行
-  q或Q       退出</code></pre>
-<p><strong>less 分页显示内容</strong></p>
-<pre class=" language-shell"><code class="language-shell">于more一样但是多了以下命令
-b 向上翻页
-上箭头 向上找
-/搜索内容   ; n next 下一条 p preview 上一条</code></pre>
-<p><strong>head</strong> 显示文件前面几行</p>
-<pre class=" language-shell"><code class="language-shell">head [文件名]
--n 指定行数</code></pre>
-<p><strong>tail</strong>显示末尾几行</p>
-<pre class=" language-shell"><code class="language-shell">tail [文件名]
--n 指定行数
--f 动态显示</code></pre>
-<h4 id="4-1-4-链接命令"><a href="#4-1-4-链接命令" class="headerlink" title="4.1.4 链接命令"></a>4.1.4 链接命令</h4><p><strong>ln</strong>(link) 生成链接文件</p>
-<pre class=" language-shell"><code class="language-shell">ln -s [原文件] [目标文件]
-   -s 创建软连接（类似windows快捷方式）
-ln [原文件] [目标文件] // 相当于拷贝cp -p + 同步更新，原文件丢失硬链接也能访问；查看i节点，一个i节点可对应多个文件；不能跨分区；不能针对目录使用</code></pre>
-<h3 id="4-2-权限管理命令"><a href="#4-2-权限管理命令" class="headerlink" title="4.2 权限管理命令"></a>4.2 权限管理命令</h3><h4 id="4-2-1-权限管理命令chmod"><a href="#4-2-1-权限管理命令chmod" class="headerlink" title="4.2.1 权限管理命令chmod"></a>4.2.1 权限管理命令chmod</h4><p><strong>chmod</strong> (change the permissions mode of a file) 改变文件或目录的权限</p>
-<pre class=" language-shell"><code class="language-shell">chmod [{ugoa}{+-=}{rwx}] [文件或目录]
-    //[{所有者，用户组，其他人，所有人}{增加权限，减少权限，重写权限}{读，写，执行}]
-      [mode=421] [文件或者目录]
-      -R 递归修改</code></pre>
-<pre class=" language-shell"><code class="language-shell">file:
-    r: cat/more/head/tail/less
-    w: vim
-    x: script command
-directory
-    r: ls
-    w: touch/mkdir/rmdir/rm
-    x: cd</code></pre>
+<span class="token comment" spellcheck="true">// 依赖收集</span>
+<span class="token keyword">function</span> <span class="token function">track</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`触发 track -> target: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>target<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> key: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 基于target找到对应的dep</span>
+    <span class="token keyword">let</span> depsMap <span class="token operator">=</span> targetMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>depsMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 如果是第一次，需要初始化依赖项</span>
+        targetMap<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token punctuation">(</span>depsMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 找到当前响应式对象key所有的依赖集合（Set）</span>
+    <span class="token keyword">let</span> deps <span class="token operator">=</span> depsMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>deps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 若不存在则初始化</span>
+        deps <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 全局变量-用于保存依赖</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>deps<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>activeEffect<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> activeEffect<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 防止重复注册- 如果activeEffect 存在并且 依赖集合中不存在则注册依赖</span>
+        deps<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>activeEffect<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 依赖集合更新</span>
+    depsMap<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> deps<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="依赖触发更新"><a href="#依赖触发更新" class="headerlink" title="依赖触发更新"></a>依赖触发更新</h2><ol>
+<li>响应式数据对象<code>set</code>方法被调用的时候，触发依赖更新-（将依赖集合中的方法全执行一遍）。</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> trigger <span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 从全局变量中找到依赖</span>
+  <span class="token keyword">let</span> depsMap <span class="token operator">=</span> targetMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>depsMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 找到对应 属性的 依赖Set</span>
+  <span class="token keyword">let</span> deps <span class="token operator">=</span> depsMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>deps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 遍历Set</span>
+  deps<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>effectFn <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 调用effect 方法更新数据</span>
+      <span class="token function">effectFn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><p>1.<a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#README">ES6</a></p>
 
             </div>
             <hr/>
@@ -716,7 +651,7 @@ directory
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://guozhitao.top/2020/12/23/xiong-di-lian-linux-bi-ji/">http://guozhitao.top/2020/12/23/xiong-di-lian-linux-bi-ji/</a>
+                    <a href="http://guozhitao.top/2022/03/02/vue-xiang-ying-shi-yuan-li/">http://guozhitao.top/2022/03/02/vue-xiang-ying-shi-yuan-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -754,8 +689,8 @@ directory
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">javascript基础</span>
                                 </a>
                             
                         </div>
@@ -927,27 +862,28 @@ directory
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/12/24/liu-lan-qi-jia-gou/">
+                <a href="/2022/03/02/vue-ru-he-pao-qi-lai-de/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="浏览器架构">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Vue如何跑起来的">
                         
-                        <span class="card-title">浏览器架构</span>
+                        <span class="card-title">Vue如何跑起来的</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Chrome架构： 仅仅打开了一个页面，为什么有四个进程？
-进程和线程
-线程：●  线程是最小的执行单元。●  线程是不能单独存在的，它是由进程来启动和管理的
-进程：● 一个进程就是一个程序的运行实例。启动一个程序的时候，操作系统会为该程序
+                            Vue如何跑起来的入口文件说明在vue3的入口文件main.js中 能看到与一下代码相似的代码
+// 引入 createApp 
+import { createApp } from 'vue'
+// 引用Element3 第三方库
+impo
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-02
                         </span>
                         <span class="publish-author">
                             
@@ -979,40 +915,25 @@ directory
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/02/javascript-ji-chu/">
+                <a href="/2022/03/02/ref-computed/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="javascript基础">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="ref,computed">
                         
-                        <span class="card-title">javascript基础</span>
+                        <span class="card-title">ref,computed</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-javascript 高级 笔记
-
-执行上下文执行上下文
-代码分类
-
-全局代码
-函数代码（局部）
-
-
-全局执行上下文
-
-在执行全局代码前将window确定为全局执行上下文
-
-对全局数据进行预处理   变量提升
-
-var 定义的全局变量==
+                            ref 函数原理：ref使用的时候都是使用.value 。 实际上在reactive 的基础上ref 比较简单。ref是对value 属性的 拦截实现的，如果是引用类型则使用reactive。
+jestimport {ref} from '
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-02
                             </span>
                         <span class="publish-author">
                             
