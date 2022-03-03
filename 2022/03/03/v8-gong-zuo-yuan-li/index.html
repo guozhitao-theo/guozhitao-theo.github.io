@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue3">
+    <meta name="keywords" content="V8">
     <meta name="description" content="郭治涛的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Vue如何跑起来的 | 郭治涛</title>
+    <title>V8工作原理 | 郭治涛</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Vue如何跑起来的</h1>
+                    <h1 class="description center-align post-title">V8工作原理</h1>
                 </div>
             </div>
         </div>
@@ -432,13 +432,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">javascript基础</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -459,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-02
+                    2022-03-03
                 </div>
                 
 
@@ -475,191 +471,79 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Vue如何跑起来的"><a href="#Vue如何跑起来的" class="headerlink" title="Vue如何跑起来的"></a>Vue如何跑起来的</h1><h2 id="入口文件说明"><a href="#入口文件说明" class="headerlink" title="入口文件说明"></a>入口文件说明</h2><p>在vue3的入口文件<code>main.js</code>中 能看到与一下代码相似的代码</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 引入 createApp </span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
-<span class="token comment" spellcheck="true">// 引用Element3 第三方库</span>
-<span class="token keyword">import</span> Element3 <span class="token keyword">from</span> <span class="token string">'element3'</span>
-<span class="token comment" spellcheck="true">// 引用Element3 第三方库样式</span>
-<span class="token keyword">import</span> <span class="token string">'element3/lib/theme-chalk/index.css'</span>
-<span class="token comment" spellcheck="true">// 引用Vue 根组件</span>
-<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
-<span class="token comment" spellcheck="true">// 引入 路由</span>
-<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'./router/index'</span>
-<span class="token comment" spellcheck="true">// 引入 vuex</span>
-<span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">'./store/index'</span>
-
-<span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Element3<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
-</code></pre>
-<h2 id="简单的实现createApp"><a href="#简单的实现createApp" class="headerlink" title="简单的实现createApp"></a>简单的实现createApp</h2><p>​        返推倒回去，知道<code>createApp()</code>传入一个<code>component</code> 返回的一个对象，对象中包含<code>use</code>，<code>mount</code>等方法。</p>
-<p>​        vue的项目都是从一个根组件搭起来的，入口文件先将vue的根组件挂载上，然后再实际的节点中挂载到对应的节点上。</p>
-<h3 id="vue-的执行流程"><a href="#vue-的执行流程" class="headerlink" title="vue 的执行流程"></a>vue 的执行流程</h3><ol>
-<li>入口文件<code>createApp</code> 调用，创建渲染器（<code>runtime-dom</code>）</li>
-<li>创建渲染器的时候将实际的客户端对节点的操作传入由<code>vue</code>渲染成为<code>html</code>节点.<ul>
-<li>这一点vue能够实现跨端原因。</li>
+                <h1 id="V8工作原理"><a href="#V8工作原理" class="headerlink" title="V8工作原理"></a>V8工作原理</h1><h2 id="JavaScript内存机制"><a href="#JavaScript内存机制" class="headerlink" title="JavaScript内存机制"></a>JavaScript内存机制</h2><h3 id="JavaScript-是什么类型的语言"><a href="#JavaScript-是什么类型的语言" class="headerlink" title="JavaScript 是什么类型的语言"></a>JavaScript 是什么类型的语言</h3><p>javaScript是一种若类型的、动态的语言。</p>
+<ul>
+<li><strong>弱类型</strong>，意味着你不需要告诉JavaScript引擎这个或那个变量是什么数据类型，JavaScript引擎在运行代码的时候自己会计算出来。</li>
+<li><strong>动态</strong>，意味着你可以使用同一个变量保存不同类型的数据。</li>
 </ul>
+<h3 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Boolean</td>
+<td>只有true和false两个值</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>只有一个值null</td>
+</tr>
+<tr>
+<td>Undefined</td>
+<td>一个没有被赋值的变量会有个默认值undefinde，变量提升时的默认值也是undefined</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>根据ECMAScript标准，JavaScript中只有一种数字类型：基于IEEE754标准的双精度64位二进制格式的值，（-263-1）到263-1</td>
+</tr>
+<tr>
+<td>BigInt</td>
+<td>javaScript中一个新的数字类型，可以用任意精度标识整数，使用BigInt，即使超出Number的安全整数范围限制，也可以安全地存储和操作。</td>
+</tr>
+<tr>
+<td>String</td>
+<td>用于表示文本数据。不同于类C语言，JavaScript的字符串时不可更改的</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>符号类型时唯一的并且时不可修改的，通常用来作为Object的key.</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>在JavaScript里，对象可以被看作是一组属性的集合</td>
+</tr>
+</tbody></table>
+<ul>
+<li>使用typeof检测Null类型时，返回的是Object。</li>
+<li>Object类型特殊，是包含了key-value对的数据类型。</li>
+<li>前七中数据类型称为原始类型，对象类型被称为引用类型。</li>
+</ul>
+<h3 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h3><p>在javaScript的执行过程中，主要有三种类型内存空间，分别是<strong>代码空间、栈空间、堆空间</strong>。</p>
+<h4 id="栈空间和堆空间"><a href="#栈空间和堆空间" class="headerlink" title="栈空间和堆空间"></a>栈空间和堆空间</h4><p>栈空间就是调用栈，用来存储执行上下文的。</p>
+<p>当执行一段代码时，需要先编译，并创建执行上下文，然后按照顺序执行代码。</p>
+<p>赋值的时候javaScript引擎判断右边的值是什么类型</p>
+<ul>
+<li><p>如果是原属类型，直接将值保存在执行上下文中的变量环境，而执行上下文又被压入到栈中，所以变量的值存放在栈中。</p>
 </li>
-<li>渲染器要做两件事：<ol>
-<li><code>render</code> 渲染器完成渲染动作（创建虚拟节点，patch, 节点刷新）</li>
-<li>将vue上的方法和配置挂载到对应的实例上（use, component, provide, directive, mount: mount的时候调用<code>render</code> 完成渲染）</li>
-</ol>
+<li><p>如果是引用类型，javaScript引擎并不是直接将该对象存放到变量环境中，而是将它分配到堆空间里面，分配后该对象会有一个“堆”中的地址，然后在将该数据的地址写进变量的值。</p>
+<p>对象类型是存放在堆空间的，在栈空间中只是保留了对象的引用地址，当JavaScript需要访问该数据的时候，通过栈中的引用地址来访问的。</p>
 </li>
+</ul>
+<h4 id="为什么要分成栈和堆两个存储空间呢"><a href="#为什么要分成栈和堆两个存储空间呢" class="headerlink" title="为什么要分成栈和堆两个存储空间呢"></a>为什么要分成栈和堆两个存储空间呢</h4><p>JavaScript引擎需要用栈来维护程序执行期间上下文的状态，如果栈空间大了话，所有的数据都存放在栈空间里面，会影响到上下文切换的效率，进而又影响到整个程序的执行效率。</p>
+<p>通常情况下，<strong>栈空间都不会设置太大，主要用来存放一些原始类型的小数据</strong>。而引用类型的数据占用的空间都比较大，所以这一类数据会被存放到堆中，<strong>堆空间很大，能存放很多大的数据</strong>，不过分配内存和回收内存都会占用一定的时间。</p>
+<p><strong>原始类型的赋值会完整复制变量值，而引用类型的赋值是复制引用地址。</strong></p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><ol>
+<li>当JavaScript引擎执行到闭包函数的时候，首先会编译，并创建一个空执行上下文。</li>
+<li>在编译过程中，遇到内部函数setName，JavaScript引擎还要堆内部函数做一次快速的词法扫描，发现该内部函数引用了闭包函数中的变量，由于是内部函数引用了外部函数的变量，所以JavaScript引擎判断这是一个闭包，于是在堆空间创建一个<code>closure()</code>的对象（这是一个内部对象，JavaScript是无法访问的），用来保存变量。</li>
+<li>接着继续扫描到其他内部方法的时候，若是这个方法内部还引用了闭包函数的变量，于是JavaScript引擎又将该变量添加到“closure(foo)”对象中。这个时候堆中的“<code>closure()对象</code>”中就包含了变量。</li>
+<li>调用闭包内部函数的时候，创建的执行上下文的变量环境中就包含了<code>closure</code></li>
 </ol>
-<pre class=" language-javascript"><code class="language-javascript">   <span class="token comment" spellcheck="true">// 返回一个包含createApp 的对象</span>
-   <span class="token keyword">function</span> ensureRenderer <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token keyword">return</span> <span class="token punctuation">(</span>
-           <span class="token comment" spellcheck="true">// createRenderer(nodeOps) 的返回值是一个创建vue实例的方法</span>
-           render <span class="token operator">||</span> <span class="token punctuation">(</span>render <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>nodeOps<span class="token punctuation">)</span><span class="token punctuation">)</span>
-       <span class="token punctuation">)</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token comment" spellcheck="true">// 创建app的方法</span>
-   <span class="token keyword">export</span> <span class="token keyword">const</span> createApp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-       <span class="token keyword">return</span> <span class="token function">ensureRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createApp</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token comment" spellcheck="true">// 创建渲染器方法</span>
-   <span class="token keyword">function</span> createRenderer <span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token comment" spellcheck="true">// 组件渲染动作 创建虚拟节点，patch算法, 节点刷新</span>
-       <span class="token keyword">function</span> render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-       <span class="token punctuation">}</span>
-       <span class="token keyword">return</span> <span class="token punctuation">{</span>
-           <span class="token comment" spellcheck="true">// 创建vue组件api，并在其中调用渲染</span>
-           createApp<span class="token punctuation">:</span> <span class="token function">createAppAPI</span><span class="token punctuation">(</span>render<span class="token punctuation">)</span>
-       <span class="token punctuation">}</span>
-   <span class="token punctuation">}</span>
-
-
-
-   <span class="token comment" spellcheck="true">// 创建vue组件api</span>
-   <span class="token keyword">let</span> uid <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment" spellcheck="true">// 全局唯一标识 每次创建一个实例 加一</span>
-   <span class="token comment" spellcheck="true">/**
-    * @description 创建vue组件 内部api的方法
-    * @returns 创建Vue App的方法
-    */</span>
-   <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createAppAPI</span><span class="token punctuation">(</span>render<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">createApp</span><span class="token punctuation">(</span>rootComponent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           <span class="token comment" spellcheck="true">// 上下文对象 -- 随便写几个意思一下</span>
-           <span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token punctuation">{</span>
-               provides<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-               components<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-               directives<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-               plugins<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 插件去重其他可被覆盖</span>
-               mixins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-           <span class="token punctuation">}</span>
-
-           <span class="token comment" spellcheck="true">// 实例上的数据和方法</span>
-           <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token punctuation">{</span>
-               _uid<span class="token punctuation">:</span> uid<span class="token operator">++</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 每个vue组件的唯一标识</span>
-               _context<span class="token punctuation">:</span> context<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 组件的上下文</span>
-               mount <span class="token punctuation">(</span>rootContainer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                   <span class="token comment" spellcheck="true">// 节点挂在</span>
-                   <span class="token comment" spellcheck="true">/**
-                    * 1. 创建虚拟节点
-                    * 2. 给虚拟节点挂载context
-                    * 3. 节点渲染
-                    */</span>
-                   <span class="token comment" spellcheck="true">// 调用 render函数</span>
-                   <span class="token keyword">const</span> vnode <span class="token operator">=</span> <span class="token function">createVNode</span><span class="token punctuation">(</span>rootComponent<span class="token punctuation">)</span>
-                   vnode<span class="token punctuation">.</span>appContext <span class="token operator">=</span> context
-                   <span class="token function">render</span><span class="token punctuation">(</span>vnode<span class="token punctuation">,</span> rootContainer<span class="token punctuation">)</span>
-                   <span class="token keyword">return</span> app
-               <span class="token punctuation">}</span><span class="token punctuation">,</span>
-               <span class="token comment" spellcheck="true">// 插件注册</span>
-               <span class="token function">use</span><span class="token punctuation">(</span>plugins<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                   <span class="token comment" spellcheck="true">/**
-                    * 1. 判断插件是否已经存在
-                    * 2. 不存在则添加插件
-                    * 3. 调用插件的install 方法 完成注册
-                    */</span>
-                   <span class="token keyword">if</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>plugins<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                       context<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>plugins<span class="token punctuation">)</span>
-                       plugins<span class="token punctuation">.</span><span class="token function">install</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> <span class="token operator">...</span>options<span class="token punctuation">)</span>
-                   <span class="token punctuation">}</span>
-                   <span class="token keyword">return</span> app
-               <span class="token punctuation">}</span><span class="token punctuation">,</span>
-               <span class="token comment" spellcheck="true">// 简单的数据存储</span>
-               provide <span class="token punctuation">(</span>key<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                   <span class="token comment" spellcheck="true">// 将数据存储到 context 中</span>
-                   context<span class="token punctuation">.</span>provides<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> val
-                   <span class="token keyword">return</span> app
-               <span class="token punctuation">}</span><span class="token punctuation">,</span>
-               <span class="token comment" spellcheck="true">// 组件注册</span>
-               <span class="token function">component</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> component<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                   <span class="token comment" spellcheck="true">// 注册的组件存储在context 上</span>
-                   context<span class="token punctuation">.</span>components<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> component
-                   <span class="token keyword">return</span> app
-               <span class="token punctuation">}</span><span class="token punctuation">,</span>
-               <span class="token comment" spellcheck="true">// ... 其他的类似</span>
-
-           <span class="token punctuation">}</span>
-           <span class="token keyword">return</span> app
-
-       <span class="token punctuation">}</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token comment" spellcheck="true">// 创建虚拟节点</span>
-   <span class="token keyword">function</span> <span class="token function">createVNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">let</span> vnode <span class="token operator">=</span> <span class="token keyword">null</span>
-     <span class="token keyword">return</span> vnode
-   <span class="token punctuation">}</span></code></pre>
-<h3 id="render-渲染"><a href="#render-渲染" class="headerlink" title="render 渲染"></a>render 渲染</h3><p><code>render(vnode, container)</code> 接受两个参数，<code>vnode</code> 是新的虚拟节点， <code>container</code>是需要更新的组件的“上下文”</p>
-<p>vue重点就是虚拟节点渲染的时候中间的patch 环节。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 虚拟节点渲染函数</span>
-<span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span>vnode<span class="token punctuation">,</span> container<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 获取旧的节点</span>
-    <span class="token keyword">const</span> prevVNode <span class="token operator">=</span> container<span class="token punctuation">.</span>_vnode
-        <span class="token comment" spellcheck="true">// 如果新的节点是null</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>vnode <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// 如果上一个节点存在的话</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>preVNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">unmount</span><span class="token punctuation">(</span>preVNode<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 传递vnode是null，直接全部卸载</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// 如果新的节点存在 调用patch</span>
-      <span class="token function">patch</span><span class="token punctuation">(</span>container<span class="token punctuation">.</span>_vnode <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span> vnode<span class="token punctuation">,</span> container<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    container<span class="token punctuation">.</span>_vnode <span class="token operator">=</span> vnode <span class="token comment" spellcheck="true">// 缓存vnode，作为下次render的prev</span>
-  <span class="token punctuation">}</span>
-
-
-<span class="token comment" spellcheck="true">// 虚拟Dom 核心 咱先只考虑 入口文件</span>
-<span class="token keyword">function</span> patch <span class="token punctuation">(</span>oldNode<span class="token punctuation">,</span> newNode<span class="token punctuation">,</span> container<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 新老虚拟Dom对比 处理</span>
-  <span class="token comment" spellcheck="true">// 暂时不管其他情况 先处理组件类型</span>
-  <span class="token function">processComponent</span><span class="token punctuation">(</span>oldNode<span class="token punctuation">,</span> newNode<span class="token punctuation">,</span> container<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//处理组件</span>
-<span class="token keyword">function</span> <span class="token function">processComponent</span><span class="token punctuation">(</span>oldNode<span class="token punctuation">,</span> newNode<span class="token punctuation">,</span> container<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 如果不存在旧的虚拟节点则直接挂载新的节点</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>oldNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 初始化 component</span>
-    <span class="token function">mountComponent</span><span class="token punctuation">(</span>newNode<span class="token punctuation">,</span> container<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 组件更新</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//挂载组件</span>
-<span class="token keyword">function</span> <span class="token function">mountComponent</span><span class="token punctuation">(</span>vnode<span class="token punctuation">,</span> container<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 创建组件实例，其实就是个对象，包含组件的各种属性</span>
-  <span class="token keyword">const</span> instance <span class="token operator">=</span> vnode<span class="token punctuation">.</span>component <span class="token operator">=</span> <span class="token punctuation">{</span>
-    vnode<span class="token punctuation">,</span>
-    type<span class="token punctuation">:</span>vnode<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
-    props<span class="token punctuation">:</span>vnode<span class="token punctuation">.</span>props<span class="token punctuation">,</span>
-    setupState<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//响应式状态</span>
-    slots<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    ctx<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    emit<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-  <span class="token comment" spellcheck="true">// 启动setup函数中的各种响应式数据 并且将模板渲染成html --- 至此 页面渲染完成</span>
-  <span class="token function">setupComponent</span><span class="token punctuation">(</span>instance<span class="token punctuation">)</span>
-  <span class="token comment" spellcheck="true">// 组件中setup中的 effect 执行之后就触发响应式数据更新</span>
-  <span class="token function">setupRenderEffect</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> container<span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
-<p>至此 页面渲染完成。</p>
+<p>产生闭包的核心有两步：</p>
+<pre><code> 1. 需要预扫描内部函数；
+ 2. 把内部函数引用的外部变量保存到堆中。</code></pre>
 
             </div>
             <hr/>
@@ -685,7 +569,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://guozhitao.top/2022/03/02/vue-ru-he-pao-qi-lai-de/">http://guozhitao.top/2022/03/02/vue-ru-he-pao-qi-lai-de/</a>
+                    <a href="http://guozhitao.top/2022/03/03/v8-gong-zuo-yuan-li/">http://guozhitao.top/2022/03/03/v8-gong-zuo-yuan-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -722,11 +606,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/javascript%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">javascript基础</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -892,9 +772,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/03/03/v8-gong-zuo-yuan-li/">
                     <div class="card-image">
@@ -914,9 +795,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -929,6 +810,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -939,22 +821,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/02/vue-xiang-ying-shi-yuan-li/">
+                <a href="/2022/03/02/vue-ru-he-pao-qi-lai-de/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Vue响应式原理">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Vue如何跑起来的">
                         
-                        <span class="card-title">Vue响应式原理</span>
+                        <span class="card-title">Vue如何跑起来的</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            VUE 响应式原理核心：proxy、effactproxy// proxy 浅层代理
-let handler = {
-  get (target, property, receiver) {
-    let res = Reflect.ge
+                            Vue如何跑起来的入口文件说明在vue3的入口文件main.js中 能看到与一下代码相似的代码
+// 引入 createApp 
+import { createApp } from 'vue'
+// 引用Element3 第三方库
+impo
                         
                     </div>
                     <div class="publish-info">
